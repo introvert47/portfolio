@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Nasir — Developer Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0c10',
+                        darkCard: '#12161f',
+                        darkBorder: '#1f2633',
+                        accentIndigo: '#5865f2',
+                        mutedText: '#8b98a5',
+                        lightText: '#f0f4f8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0c10;
+            color: #f0f4f8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card-surface {
+            background-color: #12161f;
+            border: 1px solid #1f2633;
+            transition: border-color 0.15s ease-in-out;
+        }
+
+        .card-surface:hover {
+            border-color: #38455e;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0c10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2633;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-200 antialiased selection:bg-indigo-600 selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-[#0a0c10]/95 backdrop-blur border-b border-[#1f2633]">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-14">
+                <a href="#hero" class="font-mono font-semibold text-white tracking-tight text-sm hover:text-indigo-400 transition-colors">
+                    hamza_nasir<span class="text-indigo-500">.dev</span>
+                </a>
+
+                <nav class="hidden sm:flex items-center space-x-5 text-xs font-mono text-[#8b98a5]">
+                    <a href="#featured" class="hover:text-white transition-colors">/featured</a>
+                    <a href="#projects" class="hover:text-white transition-colors">/projects</a>
+                    <a href="#skills" class="hover:text-white transition-colors">/skills</a>
+                    <a href="#about-contact" class="hover:text-white transition-colors">/about-contact</a>
+                </nav>
+
+                <a href="#about-contact" class="px-3 py-1.5 text-xs font-mono rounded bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-colors">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-8 sm:py-10">
+
+        <section id="hero" class="pb-8 border-b border-[#1f2633]">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center space-x-2 px-2.5 py-1 rounded bg-[#12161f] border border-[#1f2633] mb-3">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <span class="text-xs font-mono text-[#8b98a5]">16-Year-Old Developer</span>
+                    </div>
+
+                    <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">
+                        Hamza Nasir
+                    </h1>
+
+                    <p class="text-sm sm:text-base text-[#8b98a5] leading-normal mb-5 font-normal">
+                        16-year-old developer building standalone desktop utilities, web platforms, and automated serverless tools.
+                    </p>
+
+                    <!-- Direct Quick Links -->
+                    <div class="flex flex-wrap items-center gap-2.5 text-xs font-mono">
+                        <a href="https://github.com/introvert47" target="_blank" rel="noopener" class="px-3 py-1.5 rounded card-surface text-slate-200 hover:text-white transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-github text-sm"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hamza-nasir-601644402/" target="_blank" rel="noopener" class="px-3 py-1.5 rounded card-surface text-slate-200 hover:text-white transition-colors flex items-center gap-2">
+                            <i class="fa-brands fa-linkedin text-sm"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <div class="px-3 py-1.5 rounded card-surface text-[#8b98a5] flex items-center gap-2">
+                            <i class="fa-brands fa-discord text-sm text-indigo-400"></i>
+                            <span>introvert_49</span>
+                        </div>
+                        <a href="mailto:hn3156259@gmail.com" class="px-3 py-1.5 rounded card-surface text-slate-200 hover:text-white transition-colors flex items-center gap-2">
+                            <i class="fa-regular fa-envelope text-sm"></i>
+                            <span>hn3156259@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured" class="py-10 border-b border-[#1f2633]">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="mb-4">
+                    <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider">// Centerpiece Architecture</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Featured Highlight</h2>
+                </div>
+
+                <!-- Heroic Card -->
+                <div class="card-surface rounded-xl p-6 sm:p-8">
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6 pb-6 border-b border-[#1f2633]">
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-mono text-indigo-400 mb-2">
+                                <i class="fa-solid fa-star text-xs"></i>
+                                <span>SERVERLESS PLATFORM & MEMORY ENGINE</span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Cloudflare Personal Assistant & D1 Memory Engine</h3>
+                            <p class="text-xs sm:text-sm text-[#8b98a5] max-w-2xl leading-relaxed">
+                                A password-secured web assistant backed by Cloudflare serverless edge infrastructure. It retains persistent conversation state via D1 SQL databases while exposing direct control over external Google APIs.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Cloudflare Workers</span>
+                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Cloudflare D1 SQL</span>
+                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Vercel</span>
+                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">GitHub</span>
+                        </div>
+                    </div>
+
+                    <!-- System Architecture Flow -->
+                    <div class="bg-[#0a0c10] border border-[#1f2633] rounded-lg p-4 font-mono text-xs">
+                        <span class="text-[#8b98a5] text-[11px] block mb-3 font-semibold uppercase tracking-wider">// Execution Pipeline & Data Flow</span>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-center">
+                            
+                            <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
+                                <span class="text-indigo-400 font-bold mb-1">1. Vercel Frontend</span>
+                                <span class="text-[#8b98a5] text-[11px]">Password Lock & UI State</span>
+                            </div>
+
+                            <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
+                                <span class="text-indigo-400 font-bold mb-1">2. Cloudflare Workers</span>
+                                <span class="text-[#8b98a5] text-[11px]">Serverless Middleware API</span>
+                            </div>
+
+                            <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
+                                <span class="text-indigo-400 font-bold mb-1">3. Cloudflare D1</span>
+                                <span class="text-[#8b98a5] text-[11px]">SQL Persistent Memory</span>
+                            </div>
+
+                            <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
+                                <span class="text-indigo-400 font-bold mb-1">4. Google Integrations</span>
+                                <span class="text-[#8b98a5] text-[11px]">Gmail & Calendar Actions</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-10 border-b border-[#1f2633]">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="mb-6">
+                    <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider">// SOFTWARE PORTFOLIO</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Projects</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                    <!-- Project 1: Nexus Optimizer -->
+                    <div class="card-surface rounded-lg p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[11px] font-mono text-slate-300">SYSTEM UTILITY</span>
+                                <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener" class="text-[#8b98a5] hover:text-white transition-colors">
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                </a>
+                            </div>
+
+                            <h3 class="text-base font-bold text-white mb-2">Nexus Optimizer</h3>
+                            <p class="text-xs text-[#8b98a5] leading-relaxed mb-4">
+                                Standalone Windows system optimization CLI utility compiled to a standalone executable binary using PyInstaller.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-[#1f2633] flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1 font-mono text-[10px] text-[#8b98a5]">
+                                <span>Python</span> • <span>PyInstaller</span> • <span>PowerShell</span>
+                            </div>
+                            <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener" class="text-xs font-mono text-indigo-400 hover:underline">
+                                Repo →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: T.A.R.S. AI Web Interface -->
+                    <div class="card-surface rounded-lg p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[11px] font-mono text-slate-300">WEB & MOBILE</span>
+                                <i class="fa-solid fa-mobile-screen text-[#8b98a5] text-xs"></i>
+                            </div>
+
+                            <h3 class="text-base font-bold text-white mb-2">T.A.R.S. AI Web Interface</h3>
+                            <p class="text-xs text-[#8b98a5] leading-relaxed mb-4">
+                                Responsive single-file AI assistant interface integrating Gemini API streams with native Android APK packaging via Capacitor.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-[#1f2633]">
+                            <div class="flex flex-wrap gap-1 font-mono text-[10px] text-[#8b98a5]">
+                                <span>HTML/CSS/JS</span> • <span>Gemini API</span> • <span>Capacitor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Hand Gesture Particle Controller -->
+                    <div class="card-surface rounded-lg p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[11px] font-mono text-slate-300">COMPUTER VISION</span>
+                                <i class="fa-solid fa-hand text-[#8b98a5] text-xs"></i>
+                            </div>
+
+                            <h3 class="text-base font-bold text-white mb-2">Hand Gesture Particle Controller</h3>
+                            <p class="text-xs text-[#8b98a5] leading-relaxed mb-4">
+                                Computer vision application tracking hand gestures in real-time to interactively control simulated live particle physics on screen.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-[#1f2633]">
+                            <div class="flex flex-wrap gap-1 font-mono text-[10px] text-[#8b98a5]">
+                                <span>Python</span> • <span>OpenCV</span> • <span>MediaPipe</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-10 border-b border-[#1f2633]">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="mb-6">
+                    <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider">// TECHNICAL PROFICIENCY</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Real Skills & Tools</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+                    
+                    <!-- Languages & Web -->
+                    <div class="card-surface p-5 rounded-lg">
+                        <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-terminal text-indigo-400"></i> Languages & Web Core
+                        </h3>
+                        <div class="grid grid-cols-2 gap-2 text-[#8b98a5]">
+                            <div class="p-2.5 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200">Python</div>
+                            <div class="p-2.5 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200">JavaScript</div>
+                            <div class="p-2.5 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200">HTML5</div>
+                            <div class="p-2.5 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200">CSS3</div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Platforms -->
+                    <div class="card-surface p-5 rounded-lg">
+                        <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-cubes text-indigo-400"></i> Tools & Platforms
+                        </h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[#8b98a5]">
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">Cloudflare Workers</div>
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">Cloudflare D1</div>
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">Vercel</div>
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">GitHub</div>
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">PyInstaller</div>
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">PowerShell</div>
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">Capacitor</div>
+                            <div class="p-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-200 text-center">Termux / Linux</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="about-contact" class="py-10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    
+                    <!-- About Column (2 cols) -->
+                    <div class="lg:col-span-2">
+                        <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider block mb-1">// PROFILE</span>
+                        <h2 class="text-xl font-bold text-white mb-4">About Me</h2>
+                        
+                        <p class="text-xs sm:text-sm text-[#8b98a5] leading-relaxed mb-4">
+                            I am a 16-year-old software developer focused on low-level OS automation scripts, serverless cloud backends, and lightweight web interfaces.
+                        </p>
+                        
+                        <p class="text-xs sm:text-sm text-[#8b98a5] leading-relaxed mb-6">
+                            Rather than bloated setups, I build direct solutions: standalone executables, serverless edge database systems, and vision-assisted gesture tools.
+                        </p>
+
+                        <div class="space-y-2 text-xs font-mono text-[#8b98a5]">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-envelope text-indigo-400 w-4"></i>
+                                <span>hn3156259@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-brands fa-github text-indigo-400 w-4"></i>
+                                <span>github.com/introvert47</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-brands fa-discord text-indigo-400 w-4"></i>
+                                <span>introvert_49</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Column (3 cols) -->
+                    <div class="lg:col-span-3">
+                        <div class="card-surface p-6 rounded-xl">
+                            <h3 class="text-base font-bold text-white mb-1">Send a Direct Message</h3>
+                            <p class="text-xs text-[#8b98a5] mb-5">Submitting prepares a pre-filled email to <span class="font-mono text-slate-200">hn3156259@gmail.com</span>.</p>
+
+                            <form id="portfolioContactForm" onsubmit="handleMailtoSubmit(event)" class="space-y-3">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div>
+                                        <label for="contactName" class="block text-xs font-mono text-[#8b98a5] mb-1">Name</label>
+                                        <input type="text" id="contactName" required placeholder="Your Name" class="w-full px-3 py-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-100 text-xs focus:outline-none focus:border-indigo-500 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label for="contactEmail" class="block text-xs font-mono text-[#8b98a5] mb-1">Email</label>
+                                        <input type="email" id="contactEmail" required placeholder="your@email.com" class="w-full px-3 py-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-100 text-xs focus:outline-none focus:border-indigo-500 transition-colors">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="contactSubject" class="block text-xs font-mono text-[#8b98a5] mb-1">Subject</label>
+                                    <input type="text" id="contactSubject" required placeholder="Project / Inquiry" class="w-full px-3 py-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-100 text-xs focus:outline-none focus:border-indigo-500 transition-colors">
+                                </div>
+
+                                <div>
+                                    <label for="contactMessage" class="block text-xs font-mono text-[#8b98a5] mb-1">Message</label>
+                                    <textarea id="contactMessage" rows="4" required placeholder="Hello Hamza..." class="w-full px-3 py-2 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-100 text-xs focus:outline-none focus:border-indigo-500 transition-colors"></textarea>
+                                </div>
+
+                                <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                                    <button type="submit" class="px-5 py-2 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-medium transition-colors flex items-center gap-2">
+                                        <i class="fa-regular fa-paper-plane text-xs"></i>
+                                        <span>Send via Email</span>
+                                    </button>
+
+                                    <button type="button" onclick="copyEmailToClipboard()" class="px-3 py-2 rounded bg-[#0a0c10] border border-[#1f2633] hover:border-slate-600 text-xs font-mono text-[#8b98a5] hover:text-white transition-colors flex items-center gap-1.5">
+                                        <i class="fa-regular fa-copy text-xs"></i>
+                                        <span id="copyBtnText">Copy Email Address</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-[#1f2633] font-mono text-xs text-[#8b98a5] text-center">
+        <p>© Hamza Nasir — 16-Year-Old Developer</p>
+    </footer>
+
+    <script>
+        function handleMailtoSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            const mailSubject = encodeURIComponent(`[Portfolio] ${subject}`);
+            const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+            window.location.href = `mailto:hn3156259@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+        }
+
+        function copyEmailToClipboard() {
+            const email = 'hn3156259@gmail.com';
+            
+            // Using execCommand fallback for strict browser compatibility
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const copyBtnText = document.getElementById('copyBtnText');
+            copyBtnText.textContent = 'Copied to Clipboard!';
+            setTimeout(() => {
+                copyBtnText.textContent = 'Copy Email Address';
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
