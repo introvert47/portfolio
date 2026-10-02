@@ -94,7 +94,7 @@
                 <div class="max-w-3xl">
                     <div class="inline-flex items-center space-x-2 px-2.5 py-1 rounded bg-[#12161f] border border-[#1f2633] mb-3">
                         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        <span class="text-xs font-mono text-[#8b98a5]">16-Year-Old Developer</span>
+                        <span class="text-xs font-mono text-[#8b98a5]">16, self-taught, based in Pakistan</span>
                     </div>
 
                     <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-2">
@@ -102,7 +102,7 @@
                     </h1>
 
                     <p class="text-sm sm:text-base text-[#8b98a5] leading-normal mb-5 font-normal">
-                        16-year-old developer building standalone desktop utilities, web platforms, and automated serverless tools.
+                        I build small, focused tools — a Windows optimizer packaged as a single .exe, a serverless AI assistant with its own memory, a computer-vision toy that turns your hand into a controller. Mostly Python and JavaScript, no frameworks I don't need.
                     </p>
 
                     <!-- Direct Quick Links -->
@@ -131,54 +131,49 @@
         <section id="featured" class="py-10 border-b border-[#1f2633]">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="mb-4">
-                    <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider">// Centerpiece Architecture</span>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Featured Highlight</h2>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">What I'm most proud of</h2>
                 </div>
 
                 <!-- Heroic Card -->
                 <div class="card-surface rounded-xl p-6 sm:p-8">
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6 pb-6 border-b border-[#1f2633]">
                         <div>
-                            <div class="flex items-center gap-2 text-xs font-mono text-indigo-400 mb-2">
-                                <i class="fa-solid fa-star text-xs"></i>
-                                <span>SERVERLESS PLATFORM & MEMORY ENGINE</span>
-                            </div>
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Cloudflare Personal Assistant & D1 Memory Engine</h3>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">A personal AI assistant that remembers you</h3>
                             <p class="text-xs sm:text-sm text-[#8b98a5] max-w-2xl leading-relaxed">
-                                A password-secured web assistant backed by Cloudflare serverless edge infrastructure. It retains persistent conversation state via D1 SQL databases while exposing direct control over external Google APIs.
+                                A password-protected assistant that actually remembers your conversation — I store chat history in a Cloudflare D1 database instead of losing it on refresh, and connected it to Gmail and Calendar so it can check your schedule or draft an email when you ask.
                             </p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
                             <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Cloudflare Workers</span>
-                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Cloudflare D1 SQL</span>
+                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Cloudflare D1</span>
                             <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Vercel</span>
-                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">GitHub</span>
+                            <span class="px-2.5 py-1 rounded bg-[#0a0c10] border border-[#1f2633] text-slate-300">Gmail & Calendar API</span>
                         </div>
                     </div>
 
                     <!-- System Architecture Flow -->
                     <div class="bg-[#0a0c10] border border-[#1f2633] rounded-lg p-4 font-mono text-xs">
-                        <span class="text-[#8b98a5] text-[11px] block mb-3 font-semibold uppercase tracking-wider">// Execution Pipeline & Data Flow</span>
+                        <span class="text-[#8b98a5] text-[11px] block mb-3">How a message moves through it:</span>
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-center">
                             
                             <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
-                                <span class="text-indigo-400 font-bold mb-1">1. Vercel Frontend</span>
-                                <span class="text-[#8b98a5] text-[11px]">Password Lock & UI State</span>
+                                <span class="text-indigo-400 font-bold mb-1">1. Vercel frontend</span>
+                                <span class="text-[#8b98a5] text-[11px]">Password gate, chat UI</span>
                             </div>
 
                             <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
-                                <span class="text-indigo-400 font-bold mb-1">2. Cloudflare Workers</span>
-                                <span class="text-[#8b98a5] text-[11px]">Serverless Middleware API</span>
+                                <span class="text-indigo-400 font-bold mb-1">2. Cloudflare Worker</span>
+                                <span class="text-[#8b98a5] text-[11px]">Handles the request</span>
                             </div>
 
                             <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
                                 <span class="text-indigo-400 font-bold mb-1">3. Cloudflare D1</span>
-                                <span class="text-[#8b98a5] text-[11px]">SQL Persistent Memory</span>
+                                <span class="text-[#8b98a5] text-[11px]">Saves the conversation</span>
                             </div>
 
                             <div class="p-3 rounded bg-[#12161f] border border-[#1f2633] flex flex-col justify-center">
-                                <span class="text-indigo-400 font-bold mb-1">4. Google Integrations</span>
-                                <span class="text-[#8b98a5] text-[11px]">Gmail & Calendar Actions</span>
+                                <span class="text-indigo-400 font-bold mb-1">4. Google APIs</span>
+                                <span class="text-[#8b98a5] text-[11px]">Gmail & Calendar, on request</span>
                             </div>
 
                         </div>
@@ -190,7 +185,6 @@
         <section id="projects" class="py-10 border-b border-[#1f2633]">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="mb-6">
-                    <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider">// SOFTWARE PORTFOLIO</span>
                     <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Projects</h2>
                 </div>
 
@@ -208,7 +202,7 @@
 
                             <h3 class="text-base font-bold text-white mb-2">Nexus Optimizer</h3>
                             <p class="text-xs text-[#8b98a5] leading-relaxed mb-4">
-                                Standalone Windows system optimization CLI utility compiled to a standalone executable binary using PyInstaller.
+                                A Windows cleanup tool with a built-in AI assistant (Gemini) that explains what each tweak does before you run it. Packaged into one .exe with PyInstaller — no Python install needed.
                             </p>
                         </div>
 
@@ -230,9 +224,9 @@
                                 <i class="fa-solid fa-mobile-screen text-[#8b98a5] text-xs"></i>
                             </div>
 
-                            <h3 class="text-base font-bold text-white mb-2">T.A.R.S. AI Web Interface</h3>
+                            <h3 class="text-base font-bold text-white mb-2">T.A.R.S.</h3>
                             <p class="text-xs text-[#8b98a5] leading-relaxed mb-4">
-                                Responsive single-file AI assistant interface integrating Gemini API streams with native Android APK packaging via Capacitor.
+                                An Interstellar-themed AI assistant you can run fully offline on a local model or switch to Gemini when you want more power. Talks back with text-to-speech, and ships as a real Android app via Capacitor.
                             </p>
                         </div>
 
@@ -256,7 +250,7 @@
 
                             <h3 class="text-base font-bold text-white mb-2">Hand Gesture Particle Controller</h3>
                             <p class="text-xs text-[#8b98a5] leading-relaxed mb-4">
-                                Computer vision application tracking hand gestures in real-time to interactively control simulated live particle physics on screen.
+                                Point your webcam at your hand and push particles around on screen in real time — no mouse, no controller. Built with OpenCV and MediaPipe's hand-tracking model.
                             </p>
                         </div>
 
@@ -277,8 +271,7 @@
         <section id="skills" class="py-10 border-b border-[#1f2633]">
             <div class="max-w-5xl mx-auto px-4 sm:px-6">
                 <div class="mb-6">
-                    <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider">// TECHNICAL PROFICIENCY</span>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Real Skills & Tools</h2>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">Skills & tools</h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
@@ -323,15 +316,14 @@
                     
                     <!-- About Column (2 cols) -->
                     <div class="lg:col-span-2">
-                        <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider block mb-1">// PROFILE</span>
-                        <h2 class="text-xl font-bold text-white mb-4">About Me</h2>
+                        <h2 class="text-xl font-bold text-white mb-4">About me</h2>
                         
                         <p class="text-xs sm:text-sm text-[#8b98a5] leading-relaxed mb-4">
-                            I am a 16-year-old software developer focused on low-level OS automation scripts, serverless cloud backends, and lightweight web interfaces.
+                            I'm Hamza, 16, self-taught. I got into this through copying code from YouTube tutorials around when ChatGPT launched, then kept going until I was writing my own. No bootcamp, no CS classes yet — just a lot of broken builds and late nights fixing them.
                         </p>
                         
                         <p class="text-xs sm:text-sm text-[#8b98a5] leading-relaxed mb-6">
-                            Rather than bloated setups, I build direct solutions: standalone executables, serverless edge database systems, and vision-assisted gesture tools.
+                            I like building things that are actually useful rather than impressive-looking demos: a tool that cleans up a slow laptop, an assistant that doesn't forget what you told it, something you can point a camera at and have it just work.
                         </p>
 
                         <div class="space-y-2 text-xs font-mono text-[#8b98a5]">
