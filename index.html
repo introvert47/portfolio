@@ -1,746 +1,279 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamza Nasir — Developer Portfolio</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Sora (display), Inter (body), JetBrains Mono (code labels) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Sora', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        :root{
-            --base:         #1a1e27;
-            --shadow-dark:  #0e1116;
-            --shadow-light: #262d3c;
-            --text:         #eef1f6;
-            --text-dim:     #99a2b3;
-            --text-faint:   #6b7385;
-            --accent:       #6c7bff;
-            --accent-2:     #9a8cff;
-        }
-
-        body{
-            background-color: var(--base);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1, h2, h3, .font-display{ font-family: 'Sora', sans-serif; }
-
-        /* ---- neumorphic surfaces ---- */
-        .neu{
-            background: var(--base);
-            box-shadow: 12px 12px 28px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
-        }
-        .neu-lg{
-            background: var(--base);
-            box-shadow: 22px 22px 48px var(--shadow-dark), -18px -18px 40px var(--shadow-light);
-        }
-        .neu-sm{
-            background: var(--base);
-            box-shadow: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
-        }
-        .neu-pressed{
-            background: var(--base);
-            box-shadow: inset 7px 7px 14px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
-        }
-        .neu-pressed-sm{
-            background: var(--base);
-            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
-        }
-        .neu-btn{
-            background: var(--base);
-            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
-            transition: box-shadow .15s ease, transform .15s ease;
-        }
-        .neu-btn:hover{ transform: translateY(-1px); }
-        .neu-btn:active{
-            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
-            transform: translateY(0);
-        }
-        .neu-btn-primary{
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            box-shadow: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
-            color: #fff;
-            transition: box-shadow .15s ease, transform .15s ease;
-        }
-        .neu-btn-primary:hover{ transform: translateY(-1px); }
-        .neu-btn-primary:active{
-            box-shadow: inset 4px 4px 10px rgba(0,0,0,0.35), inset -3px -3px 8px rgba(255,255,255,0.12);
-            transform: translateY(0);
-        }
-
-        /* form inputs sit pressed-in, like real indents in the surface */
-        .neu-input{
-            background: var(--base);
-            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
-            border: none;
-            color: var(--text);
-        }
-        .neu-input::placeholder{ color: var(--text-faint); }
-        .neu-input:focus{ outline: none; }
-
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(108,123,255,0.55);
-        }
-
-        ::-webkit-scrollbar{ width: 8px; }
-        ::-webkit-scrollbar-track{ background: var(--base); }
-        ::-webkit-scrollbar-thumb{ background: var(--shadow-dark); border-radius: 4px; }
-
-        /* one orchestrated entrance: the hero panel settles into its shadow on load */
-        .hero-panel{
-            opacity: 0;
-            transform: translateY(14px);
-            box-shadow: none;
-            transition: opacity .8s ease, transform .8s ease, box-shadow .8s ease;
-        }
-        .hero-panel.revealed{
-            opacity: 1;
-            transform: translateY(0);
-            box-shadow: 14px 14px 28px var(--shadow-dark), -14px -14px 28px var(--shadow-light);
-        }
-
-        @media (prefers-reduced-motion: reduce){
-            *{ transition: none !important; animation: none !important; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamza Nasir — Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a; --paper:#fdfbf4; --blue:#2b4dff; --lime:#c6f82e; --pink:#ff3ea5; --orange:#ff5e1a; --card:#ffffff;
+}
+*{box-sizing:border-box}
+body{
+  background-color:var(--paper);color:var(--ink);font-family:'Work Sans',sans-serif;
+  background-image:
+    linear-gradient(rgba(10,10,10,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,.06) 1px, transparent 1px);
+  background-size:28px 28px;
+  position:relative;
+}
+body::before{
+  content:"";position:fixed;top:0;bottom:0;left:28px;width:2px;background:rgba(255,62,62,.35);z-index:1;pointer-events:none;
+}
+h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif}
+.pop{text-shadow:6px 6px 0 var(--lime)}
+.stamp{position:absolute}
+.mono{font-family:'JetBrains Mono',monospace}
+.brut{border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);background:var(--card);transition:transform .15s,box-shadow .15s}
+.brut:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
+.brut-sm{border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.btn{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.chip{border:2px solid var(--ink);background:var(--lime)}
+.tag{border:2px solid var(--ink);background:#fff}
+input,textarea{border:3px solid var(--ink);background:#fff;font-family:'JetBrains Mono',monospace}
+input:focus,textarea:focus{outline:none;box-shadow:5px 5px 0 var(--ink)}
+::selection{background:var(--ink);color:var(--lime)}
+.reveal{opacity:0;transform:translateY(18px)}
+.reveal.go{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
+.marquee{display:flex;white-space:nowrap;animation:mq 22s linear infinite}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.rot{transform:rotate(-2deg)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
-<body class="min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
+<body class="antialiased">
 
-    <canvas id="cursorRingField" style="position:fixed; inset:0; width:100vw; height:100vh; z-index:60; pointer-events:none; mix-blend-mode:screen;"></canvas>
+<nav class="fixed top-0 inset-x-0 z-50 brut-sm border-t-0 border-x-0" style="background:var(--paper)">
+  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+    <a href="#hero" class="disp font-bold text-lg">hamza<span style="color:var(--ink)">.dev</span></a>
+    <div class="hidden sm:flex items-center gap-1 mono text-xs">
+      <a href="#featured" class="px-3 py-1.5 hover:bg-[var(--lime)] border-2 border-transparent hover:border-[var(--ink)]">featured</a>
+      <a href="#projects" class="px-3 py-1.5 hover:bg-[var(--lime)] border-2 border-transparent hover:border-[var(--ink)]">projects</a>
+      <a href="#skills" class="px-3 py-1.5 hover:bg-[var(--lime)] border-2 border-transparent hover:border-[var(--ink)]">skills</a>
+      <a href="#about-contact" class="btn px-4 py-1.5 font-bold" style="background:var(--ink);color:#fff">contact</a>
+    </div>
+    <button id="navToggle" class="sm:hidden btn w-9 h-9" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div id="mobileNav" class="hidden sm:hidden flex-col mono text-sm border-t-3" style="border-top:3px solid var(--ink)">
+    <a href="#featured" class="px-5 py-3 border-b-2 border-[var(--ink)]">featured</a>
+    <a href="#projects" class="px-5 py-3 border-b-2 border-[var(--ink)]">projects</a>
+    <a href="#skills" class="px-5 py-3 border-b-2 border-[var(--ink)]">skills</a>
+    <a href="#about-contact" class="px-5 py-3 font-bold" style="background:var(--lime)">contact</a>
+  </div>
+</nav>
 
-    <!-- ================= FLOATING NAV ================= -->
-    <nav id="floatingNav" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl">
-        <div class="neu rounded-full px-3 py-2 flex items-center justify-between">
-            <a href="#hero" class="font-display font-semibold text-sm text-white px-3">
-                hamza<span style="color:var(--accent)">.dev</span>
-            </a>
+<main class="pt-20 pb-10">
 
-            <div class="hidden sm:flex items-center gap-1 text-xs" style="color:var(--text-dim)">
-                <a href="#featured" class="px-3 py-1.5 rounded-full hover:text-white transition-colors">featured</a>
-                <a href="#projects" class="px-3 py-1.5 rounded-full hover:text-white transition-colors">projects</a>
-                <a href="#skills" class="px-3 py-1.5 rounded-full hover:text-white transition-colors">skills</a>
-                <a href="#about-contact" class="px-3 py-1.5 rounded-full hover:text-white transition-colors">contact</a>
-            </div>
+<section id="hero" class="px-4 py-10">
+  <div class="max-w-5xl mx-auto">
+    <div class="brut p-7 sm:p-10 reveal relative">
+      <div class="chip inline-flex items-center gap-2 px-3 py-1 mono text-xs mb-5">
+        <span class="w-2 h-2 rounded-full" style="background:var(--ink)"></span>16, self-taught, based in Faisalabad
+      </div>
+      <h1 class="pop text-5xl sm:text-7xl font-bold mb-5 leading-[0.95]">Hamza<br>Nasir</h1>
+      <p class="text-sm sm:text-base leading-relaxed mb-7 max-w-lg">I build small, focused tools — a Windows optimizer packaged as a single .exe, an AI companion with its own voice, a computer-vision toy that turns your hand into a controller. Mostly Python and JavaScript, no frameworks I don't need.</p>
+      <div class="flex flex-wrap gap-2.5 mono text-xs">
+        <a href="https://github.com/introvert47" target="_blank" rel="noopener" class="btn px-4 py-2.5 flex items-center gap-2"><i class="fa-brands fa-github"></i>GitHub</a>
+        <a href="https://www.linkedin.com/in/hamza-nasir-601644402/" target="_blank" rel="noopener" class="btn px-4 py-2.5 flex items-center gap-2"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+        <span class="tag px-4 py-2.5 flex items-center gap-2"><i class="fa-brands fa-discord"></i>introvert_49</span>
+        <a href="mailto:hn3156259@gmail.com" class="btn px-4 py-2.5 flex items-center gap-2" style="background:var(--lime)"><i class="fa-regular fa-envelope"></i>Email</a>
+      </div>
+      <span class="stamp btn mono text-[10px] font-bold px-3 py-1.5 -top-4 -right-4" style="background:var(--lime);color:var(--ink)">OPEN TO WORK</span>
+    </div>
+  </div>
+  <div class="max-w-5xl mx-auto mt-5 brut-sm overflow-hidden" style="background:var(--ink);border-color:var(--lime)">
+    <div class="marquee mono text-xs font-bold py-2.5" style="color:var(--lime);animation-duration:14s">
+      <span class="px-4">PYTHON</span><span class="px-4">·</span><span class="px-4">JAVASCRIPT</span><span class="px-4">·</span><span class="px-4">CLOUDFLARE WORKERS</span><span class="px-4">·</span><span class="px-4">COMPUTER VISION</span><span class="px-4">·</span>
+      <span class="px-4">PYTHON</span><span class="px-4">·</span><span class="px-4">JAVASCRIPT</span><span class="px-4">·</span><span class="px-4">CLOUDFLARE WORKERS</span><span class="px-4">·</span><span class="px-4">COMPUTER VISION</span><span class="px-4">·</span>
+    </div>
+  </div>
+</section>
 
-            <div class="flex items-center gap-2">
-                <a href="#about-contact" class="hidden sm:inline-flex neu-btn-primary rounded-full px-4 py-1.5 text-xs font-medium">
-                    Get in touch
-                </a>
-                <button id="navToggle" aria-label="Toggle menu" aria-expanded="false" class="sm:hidden neu-btn w-9 h-9 rounded-full flex items-center justify-center" style="color:var(--text-dim)">
-                    <i class="fa-solid fa-bars text-sm" id="navToggleIcon"></i>
-                </button>
-            </div>
+<section id="featured" class="px-4 py-10">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold disp mb-5 inline-block btn px-4 py-1" style="background:var(--lime)">What I'm most proud of</h2>
+    <div class="brut p-6 sm:p-9 reveal">
+      <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6 pb-6" style="border-bottom:3px solid var(--ink)">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-bold disp mb-2">Optimus — a personal AI companion with a voice</h3>
+          <p class="text-xs sm:text-sm leading-relaxed max-w-2xl">A private, personal-use companion built to sound decisive instead of like a typical chatbot — it talks back with a real spoken voice through Fish Audio, remembers context across sessions in Cloudflare D1, and messages first the moment you open it instead of waiting on an empty chat.</p>
         </div>
-
-        <div id="mobileNav" class="hidden mt-2 neu rounded-2xl p-2 flex-col gap-1 text-xs" style="color:var(--text-dim)">
-            <a href="#featured" class="px-4 py-2.5 rounded-xl hover:text-white transition-colors block">featured</a>
-            <a href="#projects" class="px-4 py-2.5 rounded-xl hover:text-white transition-colors block">projects</a>
-            <a href="#skills" class="px-4 py-2.5 rounded-xl hover:text-white transition-colors block">skills</a>
-            <a href="#about-contact" class="px-4 py-2.5 rounded-xl hover:text-white transition-colors block">contact</a>
-            <a href="#about-contact" class="mt-1 neu-btn-primary rounded-xl px-4 py-2.5 text-center font-medium block">Get in touch</a>
+        <div class="flex flex-wrap gap-2 mono text-[11px]">
+          <span class="tag px-3 py-1.5">Cloudflare Workers</span>
+          <span class="tag px-3 py-1.5">Cloudflare D1</span>
+          <span class="tag px-3 py-1.5">Fish Audio</span>
+          <span class="tag px-3 py-1.5">Vercel</span>
         </div>
-    </nav>
-
-    <main class="pb-8">
-
-        <!-- ================= HERO ================= -->
-        <section id="hero" class="pt-28 sm:pt-32 pb-10 px-4">
-            <div class="max-w-5xl mx-auto">
-                <div class="hero-panel neu-lg rounded-[36px] p-7 sm:p-12 relative overflow-hidden" id="heroPanel">
-                    <div class="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-6">
-                        <div class="flex-1 min-w-0">
-                            <div class="neu-pressed-sm inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                <span class="text-xs font-mono" style="color:var(--text-dim)">16, self-taught, based in Pakistan</span>
-                            </div>
-
-                            <h1 class="text-4xl sm:text-6xl font-semibold tracking-tight text-white mb-5 leading-[1.05]">
-                                Hamza Nasir
-                            </h1>
-
-                            <p class="text-sm sm:text-base leading-relaxed mb-8 max-w-xl" style="color:var(--text-dim)">
-                                I build small, focused tools — a Windows optimizer packaged as a single .exe, an AI companion with its own voice, a computer-vision toy that turns your hand into a controller. Mostly Python and JavaScript, no frameworks I don't need.
-                            </p>
-
-                            <div class="flex flex-wrap gap-2.5 text-xs font-mono">
-                                <a href="https://github.com/introvert47" target="_blank" rel="noopener" class="neu-btn px-4 py-2.5 rounded-xl text-slate-200 flex items-center gap-2">
-                                    <i class="fa-brands fa-github"></i><span>GitHub</span>
-                                </a>
-                                <a href="https://www.linkedin.com/in/hamza-nasir-601644402/" target="_blank" rel="noopener" class="neu-btn px-4 py-2.5 rounded-xl text-slate-200 flex items-center gap-2">
-                                    <i class="fa-brands fa-linkedin"></i><span>LinkedIn</span>
-                                </a>
-                                <div class="neu-pressed-sm px-4 py-2.5 rounded-xl flex items-center gap-2" style="color:var(--text-dim)">
-                                    <i class="fa-brands fa-discord" style="color:var(--accent-2)"></i><span>introvert_49</span>
-                                </div>
-                                <a href="mailto:hn3156259@gmail.com" class="neu-btn px-4 py-2.5 rounded-xl text-slate-200 flex items-center gap-2">
-                                    <i class="fa-regular fa-envelope"></i><span>hn3156259@gmail.com</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="w-full lg:w-[280px] flex-shrink-0">
-                            <div class="neu-pressed rounded-[28px] overflow-hidden" style="aspect-ratio:1/1;">
-                                <canvas id="heroSignal" class="w-full h-full"></canvas>
-                            </div>
-                            <p class="text-center text-[11px] font-mono mt-3" style="color:var(--text-faint)">live signal graph</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= FEATURED ================= -->
-        <section id="featured" class="py-10 px-4">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-xl sm:text-2xl font-semibold text-white mb-5">What I'm most proud of</h2>
-
-                <div class="neu rounded-[28px] p-6 sm:p-9">
-                    <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-7 pb-7" style="border-bottom:1px solid var(--shadow-dark)">
-                        <div>
-                            <h3 class="text-xl sm:text-2xl font-semibold text-white mb-2">Optimus — a personal AI companion with a voice</h3>
-                            <p class="text-xs sm:text-sm max-w-2xl leading-relaxed" style="color:var(--text-dim)">
-                                A private, personal-use companion built to sound decisive instead of like a typical chatbot — it talks back with a real spoken voice through Fish Audio, remembers context across sessions in Cloudflare D1, and messages first the moment you open it instead of waiting on an empty chat.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-                            <span class="neu-pressed-sm px-3 py-1.5 rounded-full text-slate-300">Cloudflare Workers</span>
-                            <span class="neu-pressed-sm px-3 py-1.5 rounded-full text-slate-300">Cloudflare D1</span>
-                            <span class="neu-pressed-sm px-3 py-1.5 rounded-full text-slate-300">Fish Audio</span>
-                            <span class="neu-pressed-sm px-3 py-1.5 rounded-full text-slate-300">Vercel</span>
-                        </div>
-                    </div>
-
-                    <span class="text-[11px] font-mono block mb-4" style="color:var(--text-faint)">how a message moves through it</span>
-                    <div class="flex flex-col md:flex-row items-stretch gap-2 md:gap-0">
-                        <div class="flex-1 neu-pressed rounded-2xl p-4 text-center">
-                            <span class="block font-semibold text-sm mb-1" style="color:var(--accent)">1. Vercel frontend</span>
-                            <span class="block text-[11px]" style="color:var(--text-dim)">Chat + voice UI</span>
-                        </div>
-                        <div class="hidden md:flex items-center justify-center w-8" style="color:var(--text-faint)">→</div>
-                        <div class="flex-1 neu-pressed rounded-2xl p-4 text-center">
-                            <span class="block font-semibold text-sm mb-1" style="color:var(--accent)">2. Cloudflare Worker</span>
-                            <span class="block text-[11px]" style="color:var(--text-dim)">Handles the request</span>
-                        </div>
-                        <div class="hidden md:flex items-center justify-center w-8" style="color:var(--text-faint)">→</div>
-                        <div class="flex-1 neu-pressed rounded-2xl p-4 text-center">
-                            <span class="block font-semibold text-sm mb-1" style="color:var(--accent)">3. Cloudflare D1</span>
-                            <span class="block text-[11px]" style="color:var(--text-dim)">Remembers context</span>
-                        </div>
-                        <div class="hidden md:flex items-center justify-center w-8" style="color:var(--text-faint)">→</div>
-                        <div class="flex-1 neu-pressed rounded-2xl p-4 text-center">
-                            <span class="block font-semibold text-sm mb-1" style="color:var(--accent)">4. Fish Audio</span>
-                            <span class="block text-[11px]" style="color:var(--text-dim)">Speaks the response</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= PROJECTS ================= -->
-        <section id="projects" class="py-10 px-4">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-xl sm:text-2xl font-semibold text-white mb-5">Projects</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-                    <!-- Project 1: Nexus Optimizer -->
-                    <div class="neu rounded-2xl p-5 flex flex-col justify-between">
-                        <div>
-                            <div class="neu-pressed rounded-xl overflow-hidden mb-4" style="height:84px;">
-                                <canvas class="project-signal w-full h-full" data-seed="1"></canvas>
-                            </div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="neu-pressed-sm w-9 h-9 rounded-xl flex items-center justify-center" style="color:var(--accent)">
-                                    <i class="fa-solid fa-terminal text-sm"></i>
-                                </span>
-                                <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener" class="hover:text-white transition-colors" style="color:var(--text-dim)">
-                                    <i class="fa-brands fa-github text-sm"></i>
-                                </a>
-                            </div>
-                            <h3 class="text-base font-semibold text-white mb-2">Nexus Optimizer</h3>
-                            <p class="text-xs leading-relaxed mb-4" style="color:var(--text-dim)">
-                                A Windows cleanup tool with a built-in AI assistant (Gemini) that explains what each tweak does before you run it. Packaged into one .exe with PyInstaller — no Python install needed.
-                            </p>
-                        </div>
-                        <div class="pt-3 flex items-center justify-between" style="border-top:1px solid var(--shadow-dark)">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]" style="color:var(--text-faint)">
-                                <span>Python</span> · <span>PyInstaller</span> · <span>PowerShell</span>
-                            </div>
-                            <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener" class="text-xs font-mono hover:underline" style="color:var(--accent)">
-                                View repo
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 2: T.A.R.S. -->
-                    <div class="neu rounded-2xl p-5 flex flex-col justify-between">
-                        <div>
-                            <div class="neu-pressed rounded-xl overflow-hidden mb-4" style="height:84px;">
-                                <canvas class="project-signal w-full h-full" data-seed="2"></canvas>
-                            </div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="neu-pressed-sm w-9 h-9 rounded-xl flex items-center justify-center" style="color:var(--accent)">
-                                    <i class="fa-solid fa-mobile-screen text-sm"></i>
-                                </span>
-                            </div>
-                            <h3 class="text-base font-semibold text-white mb-2">T.A.R.S.</h3>
-                            <p class="text-xs leading-relaxed mb-4" style="color:var(--text-dim)">
-                                An Interstellar-themed AI assistant you can run fully offline on a local model or switch to Gemini when you want more power. Talks back with text-to-speech, and ships as a real Android app via Capacitor.
-                            </p>
-                        </div>
-                        <div class="pt-3 flex items-center justify-between" style="border-top:1px solid var(--shadow-dark)">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]" style="color:var(--text-faint)">
-                                <span>HTML/CSS/JS</span> · <span>Gemini API</span> · <span>Capacitor</span>
-                            </div>
-                            <a href="https://tarz01.vercel.app/" target="_blank" rel="noopener" class="text-xs font-mono hover:underline" style="color:var(--accent)">
-                                Try it
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: Hand Gesture Particle Controller -->
-                    <div class="neu rounded-2xl p-5 flex flex-col justify-between">
-                        <div>
-                            <div class="neu-pressed rounded-xl overflow-hidden mb-4" style="height:84px;">
-                                <canvas class="project-signal w-full h-full" data-seed="3"></canvas>
-                            </div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="neu-pressed-sm w-9 h-9 rounded-xl flex items-center justify-center" style="color:var(--accent)">
-                                    <i class="fa-solid fa-hand text-sm"></i>
-                                </span>
-                            </div>
-                            <h3 class="text-base font-semibold text-white mb-2">Hand Gesture Particle Controller</h3>
-                            <p class="text-xs leading-relaxed mb-4" style="color:var(--text-dim)">
-                                Point your webcam at your hand and push particles around on screen in real time — no mouse, no controller. Built with OpenCV and MediaPipe's hand-tracking model.
-                            </p>
-                        </div>
-                        <div class="pt-3 flex items-center justify-between" style="border-top:1px solid var(--shadow-dark)">
-                            <div class="flex flex-wrap gap-1 font-mono text-[10px]" style="color:var(--text-faint)">
-                                <span>Python</span> · <span>OpenCV</span> · <span>MediaPipe</span>
-                            </div>
-                            <a href="https://gesture002.vercel.app/" target="_blank" rel="noopener" class="text-xs font-mono hover:underline" style="color:var(--accent)">
-                                Try it
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= SKILLS ================= -->
-        <section id="skills" class="py-10 px-4">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-xl sm:text-2xl font-semibold text-white mb-5">Skills & tools</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 font-mono text-xs">
-
-                    <!-- Languages & Web -->
-                    <div class="neu rounded-2xl p-5">
-                        <h3 class="text-white font-semibold mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-terminal" style="color:var(--accent)"></i> Languages & Web Core
-                        </h3>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div class="neu-pressed-sm p-2.5 rounded-xl text-slate-200 text-center">Python</div>
-                            <div class="neu-pressed-sm p-2.5 rounded-xl text-slate-200 text-center">JavaScript</div>
-                            <div class="neu-pressed-sm p-2.5 rounded-xl text-slate-200 text-center">HTML5</div>
-                            <div class="neu-pressed-sm p-2.5 rounded-xl text-slate-200 text-center">CSS3</div>
-                        </div>
-                    </div>
-
-                    <!-- Tools & Platforms -->
-                    <div class="neu rounded-2xl p-5">
-                        <h3 class="text-white font-semibold mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-cubes" style="color:var(--accent)"></i> Tools & Platforms
-                        </h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">Cloudflare Workers</div>
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">Cloudflare D1</div>
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">Vercel</div>
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">GitHub</div>
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">PyInstaller</div>
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">PowerShell</div>
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">Capacitor</div>
-                            <div class="neu-pressed-sm p-2 rounded-xl text-slate-200 text-center">Termux / Linux</div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= ABOUT + CONTACT ================= -->
-        <section id="about-contact" class="py-10 px-4">
-            <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
-
-                    <!-- About Column -->
-                    <div class="lg:col-span-2">
-                        <h2 class="text-xl font-semibold text-white mb-4">About me</h2>
-
-                        <p class="text-xs sm:text-sm leading-relaxed mb-4" style="color:var(--text-dim)">
-                            I'm Hamza, 16, self-taught. I got into this through copying code from YouTube tutorials around when ChatGPT launched, then kept going until I was writing my own. No bootcamp, no CS classes yet — just a lot of broken builds and late nights fixing them.
-                        </p>
-
-                        <p class="text-xs sm:text-sm leading-relaxed mb-6" style="color:var(--text-dim)">
-                            I like building things that are actually useful rather than impressive-looking demos: a tool that cleans up a slow laptop, an assistant that doesn't forget what you told it, something you can point a camera at and have it just work.
-                        </p>
-
-                        <div class="space-y-2 text-xs font-mono">
-                            <div class="neu-pressed-sm px-3 py-2 rounded-xl flex items-center gap-2" style="color:var(--text-dim)">
-                                <i class="fa-solid fa-envelope w-4" style="color:var(--accent)"></i>
-                                <span>hn3156259@gmail.com</span>
-                            </div>
-                            <div class="neu-pressed-sm px-3 py-2 rounded-xl flex items-center gap-2" style="color:var(--text-dim)">
-                                <i class="fa-brands fa-github w-4" style="color:var(--accent)"></i>
-                                <span>github.com/introvert47</span>
-                            </div>
-                            <div class="neu-pressed-sm px-3 py-2 rounded-xl flex items-center gap-2" style="color:var(--text-dim)">
-                                <i class="fa-brands fa-discord w-4" style="color:var(--accent)"></i>
-                                <span>introvert_49</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact Form Column -->
-                    <div class="lg:col-span-3">
-                        <div class="neu rounded-[28px] p-6 sm:p-7">
-                            <h3 class="text-base font-semibold text-white mb-1">Send a direct message</h3>
-                            <p class="text-xs mb-5" style="color:var(--text-dim)">Submitting prepares a pre-filled email to <span class="font-mono text-slate-200">hn3156259@gmail.com</span>.</p>
-
-                            <form id="portfolioContactForm" onsubmit="handleMailtoSubmit(event)" class="space-y-3">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label for="contactName" class="block text-xs font-mono mb-1.5" style="color:var(--text-dim)">Name</label>
-                                        <input type="text" id="contactName" required placeholder="Your name" class="neu-input w-full px-3.5 py-2.5 rounded-xl text-xs">
-                                    </div>
-                                    <div>
-                                        <label for="contactEmail" class="block text-xs font-mono mb-1.5" style="color:var(--text-dim)">Email</label>
-                                        <input type="email" id="contactEmail" required placeholder="your@email.com" class="neu-input w-full px-3.5 py-2.5 rounded-xl text-xs">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for="contactSubject" class="block text-xs font-mono mb-1.5" style="color:var(--text-dim)">Subject</label>
-                                    <input type="text" id="contactSubject" required placeholder="Project / inquiry" class="neu-input w-full px-3.5 py-2.5 rounded-xl text-xs">
-                                </div>
-
-                                <div>
-                                    <label for="contactMessage" class="block text-xs font-mono mb-1.5" style="color:var(--text-dim)">Message</label>
-                                    <textarea id="contactMessage" rows="4" required placeholder="Hello Hamza..." class="neu-input w-full px-3.5 py-2.5 rounded-xl text-xs"></textarea>
-                                </div>
-
-                                <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-                                    <button type="submit" class="neu-btn-primary px-5 py-2.5 rounded-xl font-mono text-xs font-medium flex items-center gap-2">
-                                        <i class="fa-regular fa-paper-plane text-xs"></i>
-                                        <span>Send via email</span>
-                                    </button>
-
-                                    <button type="button" onclick="copyEmailToClipboard()" class="neu-btn px-3.5 py-2.5 rounded-xl text-xs font-mono flex items-center gap-1.5" style="color:var(--text-dim)">
-                                        <i class="fa-regular fa-copy text-xs"></i>
-                                        <span id="copyBtnText">Copy email address</span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-8 px-4 font-mono text-xs text-center" style="color:var(--text-faint)">
-        <p>© Hamza Nasir — 16-Year-Old Developer</p>
-    </footer>
-
-    <script>
-        // ---- Signal Graphic ------------------------------------------------------
-        // A small animated node/link network — used as a real visual element in the
-        // hero and as a per-project "signal strip" rather than plain icon+text.
-        function initSignalGraphic(canvas, opts) {
-            if (!canvas) return;
-            opts = opts || {};
-            const seed = opts.seed || 1;
-            const nodeCount = opts.nodeCount || 16;
-            const linkDist = opts.linkDist || 0.34;
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            const ctx = canvas.getContext('2d');
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            let w = 0, h = 0;
-
-            // deterministic-ish pseudo-random per card so each strip looks distinct
-            let s = seed * 9301 + 49297;
-            function rand() { s = (s * 9301 + 49297) % 233280; return s / 233280; }
-
-            function resize() {
-                const rect = canvas.parentElement.getBoundingClientRect();
-                w = rect.width; h = rect.height;
-                canvas.width = w * dpr; canvas.height = h * dpr;
-                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            }
-            resize();
-            window.addEventListener('resize', resize);
-
-            const nodes = Array.from({ length: nodeCount }, () => ({
-                x: rand(), y: rand(),
-                vx: (rand() - 0.5) * 0.0006,
-                vy: (rand() - 0.5) * 0.0006
-            }));
-
-            function frame() {
-                ctx.clearRect(0, 0, w, h);
-
-                if (!reduceMotion) {
-                    nodes.forEach((n) => {
-                        n.x += n.vx; n.y += n.vy;
-                        if (n.x < 0 || n.x > 1) n.vx *= -1;
-                        if (n.y < 0 || n.y > 1) n.vy *= -1;
-                        n.x = Math.max(0, Math.min(1, n.x));
-                        n.y = Math.max(0, Math.min(1, n.y));
-                    });
-                }
-
-                // links between nearby nodes
-                for (let i = 0; i < nodes.length; i++) {
-                    for (let j = i + 1; j < nodes.length; j++) {
-                        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < linkDist) {
-                            const alpha = (1 - dist / linkDist) * 0.35;
-                            ctx.beginPath();
-                            ctx.moveTo(nodes[i].x * w, nodes[i].y * h);
-                            ctx.lineTo(nodes[j].x * w, nodes[j].y * h);
-                            ctx.strokeStyle = `rgba(108, 123, 255, ${alpha})`;
-                            ctx.lineWidth = 1;
-                            ctx.stroke();
-                        }
-                    }
-                }
-
-                // nodes
-                nodes.forEach((n, i) => {
-                    ctx.beginPath();
-                    const color = i % 2 === 0 ? '108,123,255' : '154,140,255';
-                    ctx.fillStyle = `rgba(${color}, 0.9)`;
-                    ctx.arc(n.x * w, n.y * h, 2, 0, Math.PI * 2);
-                    ctx.fill();
-                });
-
-                if (!reduceMotion) requestAnimationFrame(frame);
-            }
-            frame();
-        }
-
-        initSignalGraphic(document.getElementById('heroSignal'), { seed: 7, nodeCount: 22, linkDist: 0.3 });
-        document.querySelectorAll('.project-signal').forEach((canvas) => {
-            initSignalGraphic(canvas, { seed: Number(canvas.dataset.seed) || 1, nodeCount: 10, linkDist: 0.45 });
-        });
-
-        // ---- Cursor Ring Field -------------------------------------------------
-        // A ring of orbiting points that trails the mouse. Fine-pointer devices
-        // only, and skipped entirely when the user has reduced motion set.
-        (function initCursorRingField() {
-            const canvas = document.getElementById('cursorRingField');
-            const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            if (!canvas || !hasFinePointer || reduceMotion) {
-                if (canvas) canvas.remove();
-                return;
-            }
-
-            const ctx = canvas.getContext('2d');
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            const POINT_COUNT = 26;
-            const BASE_RADIUS = 42;
-
-            let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-            let target = { x: mouse.x, y: mouse.y };
-            let lastMoveAt = 0;
-            let hasMoved = false;
-
-            const points = Array.from({ length: POINT_COUNT }, (_, i) => ({
-                angle: (i / POINT_COUNT) * Math.PI * 2,
-                wobble: Math.random() * Math.PI * 2
-            }));
-
-            function resize() {
-                canvas.width = window.innerWidth * dpr;
-                canvas.height = window.innerHeight * dpr;
-                canvas.style.width = window.innerWidth + 'px';
-                canvas.style.height = window.innerHeight + 'px';
-                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            }
-            resize();
-            window.addEventListener('resize', resize);
-
-            window.addEventListener('mousemove', (e) => {
-                target.x = e.clientX;
-                target.y = e.clientY;
-                lastMoveAt = performance.now();
-                hasMoved = true;
-            });
-
-            function draw() {
-                const w = window.innerWidth, h = window.innerHeight;
-                ctx.clearRect(0, 0, w, h);
-
-                if (!hasMoved) { requestAnimationFrame(draw); return; }
-
-                mouse.x += (target.x - mouse.x) * 0.14;
-                mouse.y += (target.y - mouse.y) * 0.14;
-
-                const idleFor = performance.now() - lastMoveAt;
-                const idleFade = idleFor > 900 ? Math.max(0.25, 1 - (idleFor - 900) / 1800) : 1;
-
-                const velocity = Math.min(Math.hypot(target.x - mouse.x, target.y - mouse.y), 60);
-                const t = performance.now() / 1000;
-
-                const coords = points.map((p) => {
-                    const angle = p.angle + t * 0.35;
-                    const wob = Math.sin(t * 1.6 + p.wobble) * 2.5;
-                    const r = BASE_RADIUS + wob + velocity * 0.5;
-                    return {
-                        x: mouse.x + Math.cos(angle) * r,
-                        y: mouse.y + Math.sin(angle) * r
-                    };
-                });
-
-                // faint ring outline
-                ctx.beginPath();
-                coords.forEach((c, i) => (i === 0 ? ctx.moveTo(c.x, c.y) : ctx.lineTo(c.x, c.y)));
-                ctx.closePath();
-                ctx.strokeStyle = `rgba(108, 123, 255, ${0.14 * idleFade})`;
-                ctx.lineWidth = 1;
-                ctx.stroke();
-
-                // points, alternating indigo / violet for depth
-                coords.forEach((c, i) => {
-                    const size = 1.5 + Math.sin(t * 3 + i) * 0.5;
-                    const color = i % 2 === 0 ? '108,123,255' : '154,140,255';
-                    ctx.beginPath();
-                    ctx.fillStyle = `rgba(${color}, ${0.6 * idleFade})`;
-                    ctx.arc(c.x, c.y, size, 0, Math.PI * 2);
-                    ctx.fill();
-                });
-
-                // soft center point marking the actual cursor position
-                ctx.beginPath();
-                ctx.fillStyle = `rgba(238, 241, 246, ${0.35 * idleFade})`;
-                ctx.arc(mouse.x, mouse.y, 1.4, 0, Math.PI * 2);
-                ctx.fill();
-
-                requestAnimationFrame(draw);
-            }
-            requestAnimationFrame(draw);
-        })();
-
-        // ---- Hero entrance (single orchestrated reveal) ------------------------
-        window.addEventListener('DOMContentLoaded', () => {
-            requestAnimationFrame(() => {
-                const panel = document.getElementById('heroPanel');
-                if (panel) panel.classList.add('revealed');
-            });
-        });
-
-        // ---- Nav toggle ----------------------------------------------------------
-        const navToggle = document.getElementById('navToggle');
-        const navToggleIcon = document.getElementById('navToggleIcon');
-        const mobileNav = document.getElementById('mobileNav');
-
-        navToggle.addEventListener('click', () => {
-            const isOpen = !mobileNav.classList.contains('hidden');
-            mobileNav.classList.toggle('hidden');
-            mobileNav.classList.toggle('flex');
-            navToggle.setAttribute('aria-expanded', String(!isOpen));
-            navToggleIcon.classList.toggle('fa-bars', isOpen);
-            navToggleIcon.classList.toggle('fa-xmark', !isOpen);
-        });
-
-        mobileNav.querySelectorAll('a').forEach((link) => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.add('hidden');
-                mobileNav.classList.remove('flex');
-                navToggle.setAttribute('aria-expanded', 'false');
-                navToggleIcon.classList.add('fa-bars');
-                navToggleIcon.classList.remove('fa-xmark');
-            });
-        });
-
-        function handleMailtoSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('contactName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const subject = document.getElementById('contactSubject').value.trim();
-            const message = document.getElementById('contactMessage').value.trim();
-
-            const mailSubject = encodeURIComponent(`[Portfolio] ${subject}`);
-            const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-
-            window.location.href = `mailto:hn3156259@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-        }
-
-        function copyEmailToClipboard() {
-            const email = 'hn3156259@gmail.com';
-            const copyBtnText = document.getElementById('copyBtnText');
-
-            function showCopied() {
-                copyBtnText.textContent = 'Copied to clipboard!';
-                setTimeout(() => {
-                    copyBtnText.textContent = 'Copy email address';
-                }, 2500);
-            }
-
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(email).then(showCopied).catch(() => fallbackCopy(email, showCopied));
-            } else {
-                fallbackCopy(email, showCopied);
-            }
-        }
-
-        function fallbackCopy(text, onDone) {
-            const tempInput = document.createElement('textarea');
-            tempInput.value = text;
-            tempInput.style.position = 'fixed';
-            tempInput.style.opacity = '0';
-            document.body.appendChild(tempInput);
-            tempInput.focus();
-            tempInput.select();
-            try {
-                document.execCommand('copy');
-            } catch (err) {
-                // clipboard unavailable — user can still select the email manually
-            }
-            document.body.removeChild(tempInput);
-            onDone();
-        }
-    </script>
+      </div>
+      <span class="mono text-[11px] block mb-4 font-bold">HOW A MESSAGE MOVES THROUGH IT</span>
+      <div class="flex flex-col md:flex-row gap-2">
+        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--lime)"><span class="block font-bold text-sm mb-1">1. Vercel frontend</span><span class="block text-[11px]">Chat + voice UI</span></div>
+        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--lime)"><span class="block font-bold text-sm mb-1">2. Cloudflare Worker</span><span class="block text-[11px]">Handles the request</span></div>
+        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--ink);color:#fff"><span class="block font-bold text-sm mb-1">3. Cloudflare D1</span><span class="block text-[11px]">Remembers context</span></div>
+        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--lime)"><span class="block font-bold text-sm mb-1">4. Fish Audio</span><span class="block text-[11px]">Speaks the response</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="px-4 py-10">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold disp mb-5">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <div class="brut p-5 flex flex-col justify-between reveal">
+        <div>
+          <div class="brut-sm mb-4 overflow-hidden" style="height:84px;background:var(--ink)"><canvas class="psig w-full h-full" data-seed="1"></canvas></div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="chip w-9 h-9 flex items-center justify-center" style="background:var(--lime)"><i class="fa-solid fa-terminal text-sm"></i></span>
+            <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener"><i class="fa-brands fa-github text-base"></i></a>
+          </div>
+          <h3 class="text-base font-bold disp mb-2">Nexus Optimizer</h3>
+          <p class="text-xs leading-relaxed mb-4">A Windows cleanup tool with a built-in AI assistant (Gemini) that explains what each tweak does before you run it. Packaged into one .exe with PyInstaller — no Python install needed.</p>
+        </div>
+        <div class="pt-3 flex items-center justify-between" style="border-top:2px solid var(--ink)">
+          <div class="mono text-[10px]">Python · PyInstaller · PowerShell</div>
+          <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener" class="text-xs mono font-bold underline">View repo</a>
+        </div>
+      </div>
+
+      <div class="brut p-5 flex flex-col justify-between reveal">
+        <div>
+          <div class="brut-sm mb-4 overflow-hidden" style="height:84px;background:var(--ink)"><canvas class="psig w-full h-full" data-seed="2"></canvas></div>
+          <div class="flex items-center justify-between mb-4"><span class="chip w-9 h-9 flex items-center justify-center" style="background:var(--lime)"><i class="fa-solid fa-mobile-screen text-sm"></i></span></div>
+          <h3 class="text-base font-bold disp mb-2">T.A.R.S.</h3>
+          <p class="text-xs leading-relaxed mb-4">An Interstellar-themed AI assistant you can run fully offline on a local model or switch to Gemini when you want more power. Talks back with text-to-speech, and ships as a real Android app via Capacitor.</p>
+        </div>
+        <div class="pt-3 flex items-center justify-between" style="border-top:2px solid var(--ink)">
+          <div class="mono text-[10px]">HTML/CSS/JS · Gemini API · Capacitor</div>
+          <a href="https://tarz01.vercel.app/" target="_blank" rel="noopener" class="text-xs mono font-bold underline">Try it</a>
+        </div>
+      </div>
+
+      <div class="brut p-5 flex flex-col justify-between reveal">
+        <div>
+          <div class="brut-sm mb-4 overflow-hidden" style="height:84px;background:var(--ink)"><canvas class="psig w-full h-full" data-seed="3"></canvas></div>
+          <div class="flex items-center justify-between mb-4"><span class="chip w-9 h-9 flex items-center justify-center" style="background:var(--lime)"><i class="fa-solid fa-hand text-sm"></i></span></div>
+          <h3 class="text-base font-bold disp mb-2">Hand Gesture Particle Controller</h3>
+          <p class="text-xs leading-relaxed mb-4">Point your webcam at your hand and push particles around on screen in real time — no mouse, no controller. Built with OpenCV and MediaPipe's hand-tracking model.</p>
+        </div>
+        <div class="pt-3 flex items-center justify-between" style="border-top:2px solid var(--ink)">
+          <div class="mono text-[10px]">Python · OpenCV · MediaPipe</div>
+          <a href="https://gesture002.vercel.app/" target="_blank" rel="noopener" class="text-xs mono font-bold underline">Try it</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="px-4 py-10">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-bold disp mb-5">Skills & tools</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mono text-xs">
+      <div class="brut p-5 reveal">
+        <h3 class="font-bold disp mb-4 flex items-center gap-2"><i class="fa-solid fa-terminal"></i> Languages & Web Core</h3>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="tag p-2.5 text-center">Python</div><div class="tag p-2.5 text-center">JavaScript</div>
+          <div class="tag p-2.5 text-center">HTML5</div><div class="tag p-2.5 text-center">CSS3</div>
+        </div>
+      </div>
+      <div class="brut p-5 reveal">
+        <h3 class="font-bold disp mb-4 flex items-center gap-2"><i class="fa-solid fa-cubes"></i> Tools & Platforms</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div class="tag p-2 text-center">Cloudflare Workers</div><div class="tag p-2 text-center">Cloudflare D1</div><div class="tag p-2 text-center">Vercel</div>
+          <div class="tag p-2 text-center">GitHub</div><div class="tag p-2 text-center">PyInstaller</div><div class="tag p-2 text-center">PowerShell</div>
+          <div class="tag p-2 text-center">Capacitor</div><div class="tag p-2 text-center">Termux / Linux</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about-contact" class="px-4 py-10">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-6">
+    <div class="lg:col-span-2 brut p-6 reveal">
+      <h2 class="text-xl font-bold disp mb-4">About me</h2>
+      <p class="text-xs sm:text-sm leading-relaxed mb-4">I'm Hamza, 16, self-taught. I got into this through copying code from YouTube tutorials around when ChatGPT launched, then kept going until I was writing my own. No bootcamp, no CS classes yet — just a lot of broken builds and late nights fixing them.</p>
+      <p class="text-xs sm:text-sm leading-relaxed mb-6">I like building things that are actually useful rather than impressive-looking demos: a tool that cleans up a slow laptop, an assistant that doesn't forget what you told it, something you can point a camera at and have it just work.</p>
+      <div class="space-y-2 mono text-xs">
+        <div class="tag px-3 py-2 flex items-center gap-2"><i class="fa-solid fa-envelope w-4"></i>hn3156259@gmail.com</div>
+        <div class="tag px-3 py-2 flex items-center gap-2"><i class="fa-brands fa-github w-4"></i>github.com/introvert47</div>
+        <div class="tag px-3 py-2 flex items-center gap-2"><i class="fa-brands fa-discord w-4"></i>introvert_49</div>
+      </div>
+    </div>
+    <div class="lg:col-span-3 brut p-6 sm:p-7 reveal">
+      <h3 class="text-base font-bold disp mb-1">Send a direct message</h3>
+      <p class="text-xs mb-5">Submitting prepares a pre-filled email to <span class="mono font-bold">hn3156259@gmail.com</span>.</p>
+      <form id="portfolioContactForm" onsubmit="handleMailtoSubmit(event)" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div><label class="block text-xs mono mb-1.5 font-bold">Name</label><input type="text" id="contactName" required placeholder="Your name" class="w-full px-3.5 py-2.5 text-xs"></div>
+          <div><label class="block text-xs mono mb-1.5 font-bold">Email</label><input type="email" id="contactEmail" required placeholder="your@email.com" class="w-full px-3.5 py-2.5 text-xs"></div>
+        </div>
+        <div><label class="block text-xs mono mb-1.5 font-bold">Subject</label><input type="text" id="contactSubject" required placeholder="Project / inquiry" class="w-full px-3.5 py-2.5 text-xs"></div>
+        <div><label class="block text-xs mono mb-1.5 font-bold">Message</label><textarea id="contactMessage" rows="4" required placeholder="Hello Hamza..." class="w-full px-3.5 py-2.5 text-xs"></textarea></div>
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <button type="submit" class="btn px-5 py-2.5 mono text-xs font-bold flex items-center gap-2" style="background:var(--ink);color:#fff"><i class="fa-regular fa-paper-plane"></i>Send via email</button>
+          <button type="button" onclick="copyEmailToClipboard()" class="btn px-3.5 py-2.5 mono text-xs flex items-center gap-1.5"><i class="fa-regular fa-copy"></i><span id="copyBtnText">Copy email address</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="py-6 px-4 mono text-xs text-center border-t-3" style="border-top:3px solid var(--ink)">© Hamza Nasir — 16-Year-Old Developer</footer>
+
+<script>
+function initSignal(canvas,seed,nodeCount,linkDist,dotColor,lineColor){
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d'); const dpr=Math.min(window.devicePixelRatio||1,2);
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w=0,h=0,s=seed*9301+49297; function rnd(){s=(s*9301+49297)%233280;return s/233280}
+  function resize(){const r=canvas.parentElement.getBoundingClientRect();w=r.width;h=r.height;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  resize(); window.addEventListener('resize',resize);
+  const nodes=Array.from({length:nodeCount},()=>({x:rnd(),y:rnd(),vx:(rnd()-.5)*.0006,vy:(rnd()-.5)*.0006}));
+  function frame(){
+    ctx.clearRect(0,0,w,h);
+    if(!reduce){nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>1)n.vx*=-1;if(n.y<0||n.y>1)n.vy*=-1;n.x=Math.max(0,Math.min(1,n.x));n.y=Math.max(0,Math.min(1,n.y))})}
+    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<linkDist){ctx.beginPath();ctx.moveTo(nodes[i].x*w,nodes[i].y*h);ctx.lineTo(nodes[j].x*w,nodes[j].y*h);ctx.strokeStyle=lineColor+((1-d/linkDist)*.5)+')';ctx.lineWidth=1.5;ctx.stroke()}
+    }
+    nodes.forEach(n=>{ctx.beginPath();ctx.fillStyle=dotColor;ctx.arc(n.x*w,n.y*h,2.5,0,Math.PI*2);ctx.fill()});
+    if(!reduce)requestAnimationFrame(frame);
+  }
+  frame();
+}
+document.querySelectorAll('.psig').forEach(c=>initSignal(c,Number(c.dataset.seed)||1,10,.45,'#c6f82e','rgba(198,248,46,'));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('go');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const navToggle=document.getElementById('navToggle'),mobileNav=document.getElementById('mobileNav');
+navToggle.addEventListener('click',()=>{mobileNav.classList.toggle('hidden');mobileNav.classList.toggle('flex')});
+mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.add('hidden');mobileNav.classList.remove('flex')}));
+
+function handleMailtoSubmit(e){
+  e.preventDefault();
+  const name=document.getElementById('contactName').value.trim(),email=document.getElementById('contactEmail').value.trim();
+  const subject=document.getElementById('contactSubject').value.trim(),message=document.getElementById('contactMessage').value.trim();
+  const s=encodeURIComponent(`[Portfolio] ${subject}`),b=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+  window.location.href=`mailto:hn3156259@gmail.com?subject=${s}&body=${b}`;
+}
+function copyEmailToClipboard(){
+  const email='hn3156259@gmail.com',t=document.getElementById('copyBtnText');
+  function done(){t.textContent='Copied to clipboard!';setTimeout(()=>t.textContent='Copy email address',2500)}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(email).then(done).catch(()=>fallback(email,done))}else fallback(email,done);
+}
+function fallback(text,done){const i=document.createElement('textarea');i.value=text;i.style.position='fixed';i.style.opacity='0';document.body.appendChild(i);i.focus();i.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(i);done()}
+</script>
 </body>
 </html>
