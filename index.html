@@ -2,278 +2,299 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hamza Nasir — Developer Portfolio</title>
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hamza Nasir — Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
-  --ink:#0a0a0a; --paper:#fdfbf4; --blue:#2b4dff; --lime:#c6f82e; --pink:#ff3ea5; --orange:#ff5e1a; --card:#ffffff;
+  --paper:#f6f2ea; --paper2:#efe9db; --ink:#19181f; --muted:#726c5e; --accent:#3c4a9c; --line:#dcd5c3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#17161c; --paper2:#1e1c24; --ink:#f1ede3; --muted:#9b9486; --accent:#8b9aff; --line:#332f3a;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#17161c; --paper2:#1e1c24; --ink:#f1ede3; --muted:#9b9486; --accent:#8b9aff; --line:#332f3a;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{
-  background-color:var(--paper);color:var(--ink);font-family:'Work Sans',sans-serif;
-  background-image:
-    linear-gradient(rgba(10,10,10,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10,10,10,.06) 1px, transparent 1px);
-  background-size:28px 28px;
-  position:relative;
+  margin:0;background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  -webkit-font-smoothing:antialiased;
 }
-body::before{
-  content:"";position:fixed;top:0;bottom:0;left:28px;width:2px;background:rgba(255,62,62,.35);z-index:1;pointer-events:none;
-}
-h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif}
-.pop{text-shadow:6px 6px 0 var(--lime)}
-.stamp{position:absolute}
-.mono{font-family:'JetBrains Mono',monospace}
-.brut{border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);background:var(--card);transition:transform .15s,box-shadow .15s}
-.brut:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
-.brut-sm{border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
-.btn{border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transition:transform .12s,box-shadow .12s}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
-.btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
-.chip{border:2px solid var(--ink);background:var(--lime)}
-.tag{border:2px solid var(--ink);background:#fff}
-input,textarea{border:3px solid var(--ink);background:#fff;font-family:'JetBrains Mono',monospace}
-input:focus,textarea:focus{outline:none;box-shadow:5px 5px 0 var(--ink)}
-::selection{background:var(--ink);color:var(--lime)}
-.reveal{opacity:0;transform:translateY(18px)}
-.reveal.go{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease}
-.marquee{display:flex;white-space:nowrap;animation:mq 22s linear infinite}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.rot{transform:rotate(-2deg)}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.serif{font-family:'Fraunces',serif}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:800px;margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+
+.nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:21}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:800px;margin:0 auto}
+.nav-mark{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+
+.hero{padding:56px 0 48px;display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.hero h1{font-size:46px;line-height:1.08;font-weight:600;margin:0 0 18px;letter-spacing:-.01em}
+.hero .lead{font-size:16px;color:var(--muted);line-height:1.7;max-width:46ch;margin:0 0 26px}
+.loc{font-size:13px;color:var(--muted);margin-bottom:10px}
+.loc span{color:var(--accent)}
+.links{display:flex;flex-wrap:wrap;gap:9px}
+.lnk{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border:1px solid var(--line);border-radius:3px;font-size:13px}
+.lnk:hover{border-color:var(--accent);color:var(--accent)}
+.lnk.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.lnk.primary:hover{opacity:.85;color:var(--paper)}
+.wave-box{border:1px solid var(--line);border-radius:4px;background:var(--paper2);padding:14px}
+.wave-box canvas{display:block;width:100%;height:120px}
+.wave-cap{font-size:11px;color:var(--muted);margin-top:8px;display:flex;justify-content:space-between}
+
+section{padding:48px 0}
+.label{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--ink);margin:0 0 26px}
+
+.project{display:grid;grid-template-columns:4px 1fr;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+.project:last-child{padding-bottom:0}
+.project .bar{background:var(--line);border-radius:2px}
+.project.live .bar{background:var(--accent)}
+.project-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:7px}
+.project h3{font-size:17px;font-weight:600;margin:0;font-family:'IBM Plex Sans',sans-serif}
+.project-link{font-size:12px;color:var(--accent)}
+.project-link:hover{text-decoration:underline}
+.project p{font-size:14px;color:var(--muted);line-height:1.65;margin:0 0 12px;max-width:58ch}
+.stack{display:flex;flex-wrap:wrap;gap:7px}
+.stack span{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:3px 8px}
+
+.skills-flow{display:flex;flex-wrap:wrap;gap:9px}
+.skills-flow span{font-size:13px;border:1px solid var(--line);border-radius:3px;padding:8px 13px;background:var(--paper2)}
+
+.about p{font-size:14.5px;line-height:1.75;color:var(--ink);max-width:62ch;margin:0 0 16px}
+.contact-list{margin-top:22px}
+.contact-row{display:flex;align-items:center;gap:10px;font-size:14px;padding:9px 0;border-top:1px solid var(--line);width:100%;background:none;border-left:none;border-right:none;border-bottom:none;font-family:inherit;color:var(--ink);text-align:left;cursor:pointer;text-decoration:none}
+.contact-row:first-child{border-top:none}
+.contact-row i{width:16px;color:var(--muted)}
+.contact-row:hover{color:var(--accent)}
+.contact-row:hover i{color:var(--accent)}
+.row-cta{margin-left:auto;font-size:12px;color:var(--muted)}
+.contact-row:hover .row-cta{color:var(--accent)}
+
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s;z-index:30}
+.drawer-overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:340px;max-width:88vw;background:var(--paper);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .28s ease;z-index:31;padding:24px;padding-top:calc(24px + env(safe-area-inset-top,0px));overflow-y:auto}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.drawer-close{background:none;border:none;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px}
+.drawer-close:hover{color:var(--ink)}
+.drawer-sub{font-size:12px;color:var(--muted);margin:0 0 20px}
+.drawer form{display:flex;flex-direction:column;gap:14px}
+.drawer label{display:flex;flex-direction:column;gap:6px;font-size:11px;color:var(--muted)}
+.drawer input,.drawer textarea{font-family:'IBM Plex Sans',sans-serif;font-size:13px;padding:9px 11px;border:1px solid var(--line);border-radius:3px;background:var(--paper2);color:var(--ink)}
+.drawer input:focus,.drawer textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between}
 </style>
 </head>
-<body class="antialiased">
+<body>
 
-<nav class="fixed top-0 inset-x-0 z-50 brut-sm border-t-0 border-x-0" style="background:var(--paper)">
-  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-    <a href="#hero" class="disp font-bold text-lg">hamza<span style="color:var(--ink)">.dev</span></a>
-    <div class="hidden sm:flex items-center gap-1 mono text-xs">
-      <a href="#featured" class="px-3 py-1.5 hover:bg-[var(--lime)] border-2 border-transparent hover:border-[var(--ink)]">featured</a>
-      <a href="#projects" class="px-3 py-1.5 hover:bg-[var(--lime)] border-2 border-transparent hover:border-[var(--ink)]">projects</a>
-      <a href="#skills" class="px-3 py-1.5 hover:bg-[var(--lime)] border-2 border-transparent hover:border-[var(--ink)]">skills</a>
-      <a href="#about-contact" class="btn px-4 py-1.5 font-bold" style="background:var(--ink);color:#fff">contact</a>
-    </div>
-    <button id="navToggle" class="sm:hidden btn w-9 h-9" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
-  </div>
-  <div id="mobileNav" class="hidden sm:hidden flex-col mono text-sm border-t-3" style="border-top:3px solid var(--ink)">
-    <a href="#featured" class="px-5 py-3 border-b-2 border-[var(--ink)]">featured</a>
-    <a href="#projects" class="px-5 py-3 border-b-2 border-[var(--ink)]">projects</a>
-    <a href="#skills" class="px-5 py-3 border-b-2 border-[var(--ink)]">skills</a>
-    <a href="#about-contact" class="px-5 py-3 font-bold" style="background:var(--lime)">contact</a>
-  </div>
-</nav>
-
-<main class="pt-20 pb-10">
-
-<section id="hero" class="px-4 py-10">
-  <div class="max-w-5xl mx-auto">
-    <div class="brut p-7 sm:p-10 reveal relative">
-      <div class="chip inline-flex items-center gap-2 px-3 py-1 mono text-xs mb-5">
-        <span class="w-2 h-2 rounded-full" style="background:var(--ink)"></span>16, self-taught, based in Faisalabad
-      </div>
-      <h1 class="pop text-5xl sm:text-7xl font-bold mb-5 leading-[0.95]">Hamza<br>Nasir</h1>
-      <p class="text-sm sm:text-base leading-relaxed mb-7 max-w-lg">I build small, focused tools — a Windows optimizer packaged as a single .exe, an AI companion with its own voice, a computer-vision toy that turns your hand into a controller. Mostly Python and JavaScript, no frameworks I don't need.</p>
-      <div class="flex flex-wrap gap-2.5 mono text-xs">
-        <a href="https://github.com/introvert47" target="_blank" rel="noopener" class="btn px-4 py-2.5 flex items-center gap-2"><i class="fa-brands fa-github"></i>GitHub</a>
-        <a href="https://www.linkedin.com/in/hamza-nasir-601644402/" target="_blank" rel="noopener" class="btn px-4 py-2.5 flex items-center gap-2"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-        <span class="tag px-4 py-2.5 flex items-center gap-2"><i class="fa-brands fa-discord"></i>introvert_49</span>
-        <a href="mailto:hn3156259@gmail.com" class="btn px-4 py-2.5 flex items-center gap-2" style="background:var(--lime)"><i class="fa-regular fa-envelope"></i>Email</a>
-      </div>
-      <span class="stamp btn mono text-[10px] font-bold px-3 py-1.5 -top-4 -right-4" style="background:var(--lime);color:var(--ink)">OPEN TO WORK</span>
+<div class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark serif">hamza</a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
-  <div class="max-w-5xl mx-auto mt-5 brut-sm overflow-hidden" style="background:var(--ink);border-color:var(--lime)">
-    <div class="marquee mono text-xs font-bold py-2.5" style="color:var(--lime);animation-duration:14s">
-      <span class="px-4">PYTHON</span><span class="px-4">·</span><span class="px-4">JAVASCRIPT</span><span class="px-4">·</span><span class="px-4">CLOUDFLARE WORKERS</span><span class="px-4">·</span><span class="px-4">COMPUTER VISION</span><span class="px-4">·</span>
-      <span class="px-4">PYTHON</span><span class="px-4">·</span><span class="px-4">JAVASCRIPT</span><span class="px-4">·</span><span class="px-4">CLOUDFLARE WORKERS</span><span class="px-4">·</span><span class="px-4">COMPUTER VISION</span><span class="px-4">·</span>
-    </div>
-  </div>
-</section>
+</div>
 
-<section id="featured" class="px-4 py-10">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-2xl sm:text-3xl font-bold disp mb-5 inline-block btn px-4 py-1" style="background:var(--lime)">What I'm most proud of</h2>
-    <div class="brut p-6 sm:p-9 reveal">
-      <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-5 mb-6 pb-6" style="border-bottom:3px solid var(--ink)">
-        <div>
-          <h3 class="text-xl sm:text-2xl font-bold disp mb-2">Optimus — a personal AI companion with a voice</h3>
-          <p class="text-xs sm:text-sm leading-relaxed max-w-2xl">A private, personal-use companion built to sound decisive instead of like a typical chatbot — it talks back with a real spoken voice through Fish Audio, remembers context across sessions in Cloudflare D1, and messages first the moment you open it instead of waiting on an empty chat.</p>
-        </div>
-        <div class="flex flex-wrap gap-2 mono text-[11px]">
-          <span class="tag px-3 py-1.5">Cloudflare Workers</span>
-          <span class="tag px-3 py-1.5">Cloudflare D1</span>
-          <span class="tag px-3 py-1.5">Fish Audio</span>
-          <span class="tag px-3 py-1.5">Vercel</span>
-        </div>
-      </div>
-      <span class="mono text-[11px] block mb-4 font-bold">HOW A MESSAGE MOVES THROUGH IT</span>
-      <div class="flex flex-col md:flex-row gap-2">
-        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--lime)"><span class="block font-bold text-sm mb-1">1. Vercel frontend</span><span class="block text-[11px]">Chat + voice UI</span></div>
-        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--lime)"><span class="block font-bold text-sm mb-1">2. Cloudflare Worker</span><span class="block text-[11px]">Handles the request</span></div>
-        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--ink);color:#fff"><span class="block font-bold text-sm mb-1">3. Cloudflare D1</span><span class="block text-[11px]">Remembers context</span></div>
-        <div class="flex-1 brut-sm p-4 text-center" style="background:var(--lime)"><span class="block font-bold text-sm mb-1">4. Fish Audio</span><span class="block text-[11px]">Speaks the response</span></div>
+<main class="wrap">
+
+  <section id="top" class="hero">
+    <div>
+      <div class="loc mono">Faisalabad, Pakistan · <span>open to work</span></div>
+      <h1 class="serif">Hamza Nasir</h1>
+      <p class="lead">Self-taught developer. I build small, working things — an AI companion that actually talks back, a chatbot a few dozen people use daily, a Windows cleanup tool, a camera that turns your hand into a controller. Mostly Python and JavaScript, no framework I don't need.</p>
+      <div class="links">
+        <a href="https://github.com/introvert47" target="_blank" rel="noopener" class="lnk"><i class="fa-brands fa-github"></i>GitHub</a>
+        <a href="https://www.linkedin.com/in/hamza-nasir-601644402/" target="_blank" rel="noopener" class="lnk"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+        <span class="lnk"><i class="fa-brands fa-discord"></i>introvert_49</span>
+        <a href="mailto:hn3156259@gmail.com" class="lnk primary"><i class="fa-regular fa-envelope"></i>Email me</a>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="projects" class="px-4 py-10">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-2xl sm:text-3xl font-bold disp mb-5">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-      <div class="brut p-5 flex flex-col justify-between reveal">
-        <div>
-          <div class="brut-sm mb-4 overflow-hidden" style="height:84px;background:var(--ink)"><canvas class="psig w-full h-full" data-seed="1"></canvas></div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="chip w-9 h-9 flex items-center justify-center" style="background:var(--lime)"><i class="fa-solid fa-terminal text-sm"></i></span>
-            <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener"><i class="fa-brands fa-github text-base"></i></a>
-          </div>
-          <h3 class="text-base font-bold disp mb-2">Nexus Optimizer</h3>
-          <p class="text-xs leading-relaxed mb-4">A Windows cleanup tool with a built-in AI assistant (Gemini) that explains what each tweak does before you run it. Packaged into one .exe with PyInstaller — no Python install needed.</p>
-        </div>
-        <div class="pt-3 flex items-center justify-between" style="border-top:2px solid var(--ink)">
-          <div class="mono text-[10px]">Python · PyInstaller · PowerShell</div>
-          <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener" class="text-xs mono font-bold underline">View repo</a>
-        </div>
-      </div>
-
-      <div class="brut p-5 flex flex-col justify-between reveal">
-        <div>
-          <div class="brut-sm mb-4 overflow-hidden" style="height:84px;background:var(--ink)"><canvas class="psig w-full h-full" data-seed="2"></canvas></div>
-          <div class="flex items-center justify-between mb-4"><span class="chip w-9 h-9 flex items-center justify-center" style="background:var(--lime)"><i class="fa-solid fa-mobile-screen text-sm"></i></span></div>
-          <h3 class="text-base font-bold disp mb-2">T.A.R.S.</h3>
-          <p class="text-xs leading-relaxed mb-4">An Interstellar-themed AI assistant you can run fully offline on a local model or switch to Gemini when you want more power. Talks back with text-to-speech, and ships as a real Android app via Capacitor.</p>
-        </div>
-        <div class="pt-3 flex items-center justify-between" style="border-top:2px solid var(--ink)">
-          <div class="mono text-[10px]">HTML/CSS/JS · Gemini API · Capacitor</div>
-          <a href="https://tarz01.vercel.app/" target="_blank" rel="noopener" class="text-xs mono font-bold underline">Try it</a>
-        </div>
-      </div>
-
-      <div class="brut p-5 flex flex-col justify-between reveal">
-        <div>
-          <div class="brut-sm mb-4 overflow-hidden" style="height:84px;background:var(--ink)"><canvas class="psig w-full h-full" data-seed="3"></canvas></div>
-          <div class="flex items-center justify-between mb-4"><span class="chip w-9 h-9 flex items-center justify-center" style="background:var(--lime)"><i class="fa-solid fa-hand text-sm"></i></span></div>
-          <h3 class="text-base font-bold disp mb-2">Hand Gesture Particle Controller</h3>
-          <p class="text-xs leading-relaxed mb-4">Point your webcam at your hand and push particles around on screen in real time — no mouse, no controller. Built with OpenCV and MediaPipe's hand-tracking model.</p>
-        </div>
-        <div class="pt-3 flex items-center justify-between" style="border-top:2px solid var(--ink)">
-          <div class="mono text-[10px]">Python · OpenCV · MediaPipe</div>
-          <a href="https://gesture002.vercel.app/" target="_blank" rel="noopener" class="text-xs mono font-bold underline">Try it</a>
-        </div>
-      </div>
-
+    <div class="wave-box">
+      <canvas id="wave"></canvas>
+      <div class="wave-cap mono"><span>voice · gesture · signal</span><span>live</span></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="skills" class="px-4 py-10">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-2xl sm:text-3xl font-bold disp mb-5">Skills & tools</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mono text-xs">
-      <div class="brut p-5 reveal">
-        <h3 class="font-bold disp mb-4 flex items-center gap-2"><i class="fa-solid fa-terminal"></i> Languages & Web Core</h3>
-        <div class="grid grid-cols-2 gap-2">
-          <div class="tag p-2.5 text-center">Python</div><div class="tag p-2.5 text-center">JavaScript</div>
-          <div class="tag p-2.5 text-center">HTML5</div><div class="tag p-2.5 text-center">CSS3</div>
+  <section id="projects">
+    <h2 class="label">What I've built</h2>
+
+    <div class="project live">
+      <div class="bar"></div>
+      <div>
+        <div class="project-head">
+          <h3>Ori</h3>
+          <a href="https://ori-002.vercel.app/" target="_blank" rel="noopener" class="project-link">Try it</a>
         </div>
-      </div>
-      <div class="brut p-5 reveal">
-        <h3 class="font-bold disp mb-4 flex items-center gap-2"><i class="fa-solid fa-cubes"></i> Tools & Platforms</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          <div class="tag p-2 text-center">Cloudflare Workers</div><div class="tag p-2 text-center">Cloudflare D1</div><div class="tag p-2 text-center">Vercel</div>
-          <div class="tag p-2 text-center">GitHub</div><div class="tag p-2 text-center">PyInstaller</div><div class="tag p-2 text-center">PowerShell</div>
-          <div class="tag p-2 text-center">Capacitor</div><div class="tag p-2 text-center">Termux / Linux</div>
-        </div>
+        <p>A full-stack AI companion built solo — an adaptive persona instead of a generic assistant, persistent memory across conversations, multilingual, and able to read files, images, and video you send it. A load balancer rotates across 7 API keys between Groq and Gemini with automatic failover, keeping it reliable on free-tier limits, with per-user rate limiting and full chat history.</p>
+        <div class="stack mono"><span>Groq</span><span>Gemini</span><span>Cloudflare Workers</span><span>Cloudflare D1</span><span>Firebase Auth</span><span>Vercel</span></div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="about-contact" class="px-4 py-10">
-  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-6">
-    <div class="lg:col-span-2 brut p-6 reveal">
-      <h2 class="text-xl font-bold disp mb-4">About me</h2>
-      <p class="text-xs sm:text-sm leading-relaxed mb-4">I'm Hamza, 16, self-taught. I got into this through copying code from YouTube tutorials around when ChatGPT launched, then kept going until I was writing my own. No bootcamp, no CS classes yet — just a lot of broken builds and late nights fixing them.</p>
-      <p class="text-xs sm:text-sm leading-relaxed mb-6">I like building things that are actually useful rather than impressive-looking demos: a tool that cleans up a slow laptop, an assistant that doesn't forget what you told it, something you can point a camera at and have it just work.</p>
-      <div class="space-y-2 mono text-xs">
-        <div class="tag px-3 py-2 flex items-center gap-2"><i class="fa-solid fa-envelope w-4"></i>hn3156259@gmail.com</div>
-        <div class="tag px-3 py-2 flex items-center gap-2"><i class="fa-brands fa-github w-4"></i>github.com/introvert47</div>
-        <div class="tag px-3 py-2 flex items-center gap-2"><i class="fa-brands fa-discord w-4"></i>introvert_49</div>
+    <div class="project live">
+      <div class="bar"></div>
+      <div>
+        <div class="project-head">
+          <h3>Optimus</h3>
+          <span class="project-link" style="color:var(--muted)">Private build</span>
+        </div>
+        <p>A personal AI companion built to sound decisive instead of like a typical chatbot — speaks with a real voice through Fish Audio, remembers context across sessions, and messages first the moment you open it.</p>
+        <div class="stack mono"><span>Cloudflare Workers</span><span>Cloudflare D1</span><span>Fish Audio</span><span>Vercel</span></div>
       </div>
     </div>
-    <div class="lg:col-span-3 brut p-6 sm:p-7 reveal">
-      <h3 class="text-base font-bold disp mb-1">Send a direct message</h3>
-      <p class="text-xs mb-5">Submitting prepares a pre-filled email to <span class="mono font-bold">hn3156259@gmail.com</span>.</p>
-      <form id="portfolioContactForm" onsubmit="handleMailtoSubmit(event)" class="space-y-3">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div><label class="block text-xs mono mb-1.5 font-bold">Name</label><input type="text" id="contactName" required placeholder="Your name" class="w-full px-3.5 py-2.5 text-xs"></div>
-          <div><label class="block text-xs mono mb-1.5 font-bold">Email</label><input type="email" id="contactEmail" required placeholder="your@email.com" class="w-full px-3.5 py-2.5 text-xs"></div>
+
+    <div class="project">
+      <div class="bar"></div>
+      <div>
+        <div class="project-head">
+          <h3>Nexus Optimizer</h3>
+          <a href="https://github.com/introvert47/nexus_optimizer" target="_blank" rel="noopener" class="project-link">View repo</a>
         </div>
-        <div><label class="block text-xs mono mb-1.5 font-bold">Subject</label><input type="text" id="contactSubject" required placeholder="Project / inquiry" class="w-full px-3.5 py-2.5 text-xs"></div>
-        <div><label class="block text-xs mono mb-1.5 font-bold">Message</label><textarea id="contactMessage" rows="4" required placeholder="Hello Hamza..." class="w-full px-3.5 py-2.5 text-xs"></textarea></div>
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-          <button type="submit" class="btn px-5 py-2.5 mono text-xs font-bold flex items-center gap-2" style="background:var(--ink);color:#fff"><i class="fa-regular fa-paper-plane"></i>Send via email</button>
-          <button type="button" onclick="copyEmailToClipboard()" class="btn px-3.5 py-2.5 mono text-xs flex items-center gap-1.5"><i class="fa-regular fa-copy"></i><span id="copyBtnText">Copy email address</span></button>
-        </div>
-      </form>
+        <p>A Windows cleanup tool with a built-in AI assistant that explains what each tweak does before you run it. Packaged into one .exe with PyInstaller — no Python install needed.</p>
+        <div class="stack mono"><span>Python</span><span>Gemini</span><span>PyInstaller</span><span>PowerShell</span></div>
+      </div>
     </div>
-  </div>
-</section>
+
+    <div class="project">
+      <div class="bar"></div>
+      <div>
+        <div class="project-head">
+          <h3>T.A.R.S.</h3>
+          <a href="https://tarz01.vercel.app/" target="_blank" rel="noopener" class="project-link">Try it</a>
+        </div>
+        <p>An Interstellar-themed assistant that runs fully offline on a local model or switches to Gemini for more power. Talks back with text-to-speech, and ships as a real Android app.</p>
+        <div class="stack mono"><span>HTML/CSS/JS</span><span>Gemini API</span><span>Capacitor</span></div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="bar"></div>
+      <div>
+        <div class="project-head">
+          <h3>Hand Gesture Particle Controller</h3>
+          <a href="https://gesture002.vercel.app/" target="_blank" rel="noopener" class="project-link">Try it</a>
+        </div>
+        <p>Point your webcam at your hand and push particles around on screen in real time — no mouse, no controller. Built with OpenCV and MediaPipe's hand-tracking model.</p>
+        <div class="stack mono"><span>Python</span><span>OpenCV</span><span>MediaPipe</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="label">Skills &amp; tools</h2>
+    <div class="skills-flow mono">
+      <span>Python</span><span>JavaScript</span><span>HTML/CSS</span><span>LLM fine-tuning</span>
+      <span>Gemini API</span><span>Cloudflare Workers</span><span>Cloudflare D1</span><span>Firebase</span>
+      <span>Vercel</span><span>GitHub</span><span>PyInstaller</span><span>PowerShell</span>
+      <span>Capacitor</span><span>Termux / Linux</span>
+    </div>
+  </section>
+
+  <section id="contact" class="about">
+    <h2 class="label">About</h2>
+    <p>I started by copying code from YouTube tutorials around when ChatGPT launched, then kept pulling things apart until I understood them well enough to write my own. No bootcamp, no CS classes yet — just a lot of broken builds and late nights fixing them, including picking up LLM fine-tuning along the way.</p>
+    <p>I'd rather ship something useful than something that only looks good in a demo: a tool that actually speeds up a slow laptop, an assistant that remembers what you told it last week, a chatbot people come back to daily. If it doesn't hold up outside the pitch, it's not finished.</p>
+    <div class="contact-list">
+      <button type="button" class="contact-row" id="openContactBtn"><i class="fa-solid fa-envelope"></i>Email<span class="row-cta">Message me</span></button>
+      <a class="contact-row" href="https://github.com/introvert47" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+      <a class="contact-row" href="https://www.linkedin.com/in/hamza-nasir-601644402/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+      <button type="button" class="contact-row" id="copyDiscordBtn"><i class="fa-brands fa-discord"></i>Discord<span class="row-cta" id="discordText">Copy</span></button>
+    </div>
+  </section>
+
 </main>
 
-<footer class="py-6 px-4 mono text-xs text-center border-t-3" style="border-top:3px solid var(--ink)">© Hamza Nasir — 16-Year-Old Developer</footer>
+<footer class="wrap">
+  <div class="footer-inner mono"><span>© Hamza Nasir</span><span>Faisalabad</span></div>
+</footer>
+
+<div id="contactOverlay" class="drawer-overlay"></div>
+<aside id="contactDrawer" class="drawer">
+  <div class="drawer-head">
+    <span class="serif" style="font-size:18px">Send a message</span>
+    <button type="button" id="closeContactBtn" class="drawer-close" aria-label="Close">&times;</button>
+  </div>
+  <p class="drawer-sub mono">Opens your email app, addressed to hn3156259@gmail.com</p>
+  <form id="contactForm">
+    <label class="mono">Name<input type="text" id="cName" required placeholder="Your name"></label>
+    <label class="mono">Email<input type="email" id="cEmail" required placeholder="your@email.com"></label>
+    <label class="mono">Message<textarea id="cMessage" rows="5" required placeholder="Hey Hamza..."></textarea></label>
+    <button type="submit" class="lnk primary" style="width:100%;justify-content:center">Send email</button>
+  </form>
+</aside>
 
 <script>
-function initSignal(canvas,seed,nodeCount,linkDist,dotColor,lineColor){
-  if(!canvas)return;
-  const ctx=canvas.getContext('2d'); const dpr=Math.min(window.devicePixelRatio||1,2);
+(function(){
+  const c=document.getElementById('wave'),ctx=c.getContext('2d');
+  const dpr=Math.min(window.devicePixelRatio||1,2);
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let w=0,h=0,s=seed*9301+49297; function rnd(){s=(s*9301+49297)%233280;return s/233280}
-  function resize(){const r=canvas.parentElement.getBoundingClientRect();w=r.width;h=r.height;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
-  resize(); window.addEventListener('resize',resize);
-  const nodes=Array.from({length:nodeCount},()=>({x:rnd(),y:rnd(),vx:(rnd()-.5)*.0006,vy:(rnd()-.5)*.0006}));
-  function frame(){
-    ctx.clearRect(0,0,w,h);
-    if(!reduce){nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>1)n.vx*=-1;if(n.y<0||n.y>1)n.vy*=-1;n.x=Math.max(0,Math.min(1,n.x));n.y=Math.max(0,Math.min(1,n.y))})}
-    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
-      const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<linkDist){ctx.beginPath();ctx.moveTo(nodes[i].x*w,nodes[i].y*h);ctx.lineTo(nodes[j].x*w,nodes[j].y*h);ctx.strokeStyle=lineColor+((1-d/linkDist)*.5)+')';ctx.lineWidth=1.5;ctx.stroke()}
+  function size(){const r=c.getBoundingClientRect();c.width=r.width*dpr;c.height=r.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  size();window.addEventListener('resize',size);
+  const styles=getComputedStyle(document.documentElement);
+  const accent=styles.getPropertyValue('--accent').trim();
+  let progress=0;
+  function points(w,h,t){
+    const pts=[];const n=140;
+    for(let i=0;i<=n;i++){
+      const x=i/n;
+      const y=0.5+ (Math.sin(x*14+t*1.1)*0.18 + Math.sin(x*5-t*0.6)*0.12) * Math.min(1,(x*3)) * Math.min(1,((1-x)*6+0.3));
+      pts.push([x*w,y*h]);
     }
-    nodes.forEach(n=>{ctx.beginPath();ctx.fillStyle=dotColor;ctx.arc(n.x*w,n.y*h,2.5,0,Math.PI*2);ctx.fill()});
-    if(!reduce)requestAnimationFrame(frame);
+    return pts;
   }
-  frame();
-}
-document.querySelectorAll('.psig').forEach(c=>initSignal(c,Number(c.dataset.seed)||1,10,.45,'#c6f82e','rgba(198,248,46,'));
+  function draw(){
+    const r=c.getBoundingClientRect(),w=r.width,h=r.height;
+    ctx.clearRect(0,0,w,h);
+    if(progress<1 && !reduce) progress+=0.012;
+    const t=performance.now()/1000;
+    const pts=points(w,h,t*(reduce?0:1));
+    const visible=Math.max(2,Math.floor(pts.length*Math.min(1,progress)));
+    ctx.beginPath();
+    for(let i=0;i<visible;i++){const [x,y]=pts[i]; i===0?ctx.moveTo(x,y):ctx.lineTo(x,y)}
+    ctx.strokeStyle=accent;ctx.lineWidth=1.8;ctx.lineJoin='round';ctx.stroke();
+    if(!reduce || progress<1) requestAnimationFrame(draw);
+  }
+  draw();
+})();
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('go');io.unobserve(e.target)}}),{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-const navToggle=document.getElementById('navToggle'),mobileNav=document.getElementById('mobileNav');
-navToggle.addEventListener('click',()=>{mobileNav.classList.toggle('hidden');mobileNav.classList.toggle('flex')});
-mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.add('hidden');mobileNav.classList.remove('flex')}));
-
-function handleMailtoSubmit(e){
+const drawer=document.getElementById('contactDrawer'), overlay=document.getElementById('contactOverlay');
+const openBtn=document.getElementById('openContactBtn'), closeBtn=document.getElementById('closeContactBtn');
+function openDrawer(){drawer.classList.add('open');overlay.classList.add('open')}
+function closeDrawer(){drawer.classList.remove('open');overlay.classList.remove('open')}
+openBtn && openBtn.addEventListener('click',openDrawer);
+closeBtn && closeBtn.addEventListener('click',closeDrawer);
+overlay && overlay.addEventListener('click',closeDrawer);
+const cForm=document.getElementById('contactForm');
+cForm && cForm.addEventListener('submit',function(e){
   e.preventDefault();
-  const name=document.getElementById('contactName').value.trim(),email=document.getElementById('contactEmail').value.trim();
-  const subject=document.getElementById('contactSubject').value.trim(),message=document.getElementById('contactMessage').value.trim();
-  const s=encodeURIComponent(`[Portfolio] ${subject}`),b=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-  window.location.href=`mailto:hn3156259@gmail.com?subject=${s}&body=${b}`;
-}
-function copyEmailToClipboard(){
-  const email='hn3156259@gmail.com',t=document.getElementById('copyBtnText');
-  function done(){t.textContent='Copied to clipboard!';setTimeout(()=>t.textContent='Copy email address',2500)}
-  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(email).then(done).catch(()=>fallback(email,done))}else fallback(email,done);
-}
-function fallback(text,done){const i=document.createElement('textarea');i.value=text;i.style.position='fixed';i.style.opacity='0';document.body.appendChild(i);i.focus();i.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(i);done()}
+  const name=document.getElementById('cName').value.trim();
+  const email=document.getElementById('cEmail').value.trim();
+  const message=document.getElementById('cMessage').value.trim();
+  const subject=encodeURIComponent('Portfolio contact from '+name);
+  const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+message);
+  window.location.href='mailto:hn3156259@gmail.com?subject='+subject+'&body='+body;
+});
+const discordBtn=document.getElementById('copyDiscordBtn');
+discordBtn && discordBtn.addEventListener('click',function(){
+  const t=document.getElementById('discordText');
+  if(navigator.clipboard){navigator.clipboard.writeText('introvert_49').then(()=>{t.textContent='Copied!';setTimeout(()=>t.textContent='Copy',1800)})}
+});
 </script>
 </body>
 </html>
